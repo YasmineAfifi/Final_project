@@ -4,8 +4,8 @@
 
 
 ## Table of contents
--[Project-Description](#project-description)
--[The-Features](#the-features)
+-[Project Description](#project-description)
+-[The Features](#the-features)
 -[Tools](#tools)
 
 ### Project Description
