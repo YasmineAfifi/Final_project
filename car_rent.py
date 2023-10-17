@@ -98,9 +98,18 @@ def Add_cars():
         car_data = {"id":car_object.id,"brand":car_object.brand,"color":car_object.color,"price":car_object.price}
         All_cars_data.append(car_data)
         write_json(data_file,file_name)
-    return "hello"
+    return "Added successfully"
 
 
+# see all cars is available in json file
+@app.route("/AllCars")
+def Show_All_Cars():
+ 
+    with open("cars.json") as json_file:
+        cars = json.load(json_file)
+        All_cars = cars["cars"]
+
+    return All_cars
 
 
 if __name__ =='__main__':

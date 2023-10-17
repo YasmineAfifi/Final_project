@@ -29,6 +29,12 @@
             "brand": "bbbb",
             "color": "ggg",
             "price": "666"
+        },
+        {
+            "id": 0,
+            "brand": "bbbb",
+            "color": "ggg",
+            "price": "111"
         }
     ]
 }
