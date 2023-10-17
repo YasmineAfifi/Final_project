@@ -1,6 +1,5 @@
 {
-    "name": 
-    [
+    "name": [
         {
             "id": 1,
             "Name": "mohamed",
@@ -12,6 +11,18 @@
             "Name": "mona",
             "email": "aa@gmail.com",
             "password": "12345678"
+        },
+        {
+            "id": 1,
+            "Name": "nnn",
+            "email": "mmmm",
+            "paswsword": "123456"
+        },
+        {
+            "id": 1,
+            "Name": "sara",
+            "email": "sara@gmail.com",
+            "paswsword": "123456"
         }
     ]
 }

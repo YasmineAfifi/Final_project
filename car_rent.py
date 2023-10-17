@@ -1,8 +1,23 @@
 import flask
 import json
+import itertools
+
+from pprint import pprint
+import inspect
 app = flask.Flask(__name__)
 
-id =1
+# class Cars 
+class Car:
+    id_obj = itertools.count()
+
+    def __init__(self,brand,color,price):
+        self.id = next(Car.id_obj)
+        self.brand = brand
+        self.color = color
+        self.price = price
+
+
+
 # function for returning the html pages
 def get_html(page_name):
     html_page = open("Templetes/"+page_name+".html")
@@ -11,7 +26,7 @@ def get_html(page_name):
     return page_content
 
 #  enter data to json file
-def write_json(data,file_name="register.json"):
+def write_json(data,file_name):
     with open(file_name,"w") as file:
         json.dump(data,file,indent=4)
 
@@ -21,21 +36,22 @@ def register():
     gethtml = get_html("index")
     return gethtml
 
+id =1
 # add data from register form to json file
 @app.route("/register",methods = ["POST"])
 def call():
     name = flask.request.form.get("name")
     email = flask.request.form.get("email")
     password = flask.request.form.get("password")
-    print(name)
     with open("register.json") as json_file:
         global id
+        file_name="register.json"
         data = json.load(json_file)
         temp =data["name"]
         y={"id":id,"Name":name,"email":email,"paswsword":password}
         temp.append(y)
         id= id + 1
-        write_json(data)
+        write_json(data,file_name)
     return "added"
 
 
@@ -52,8 +68,6 @@ def login():
 def check_user_login():
     email = flask.request.form.get("email")
     password = flask.request.form.get("password")
-    print(email)
-    print(password)
     with open("register.json") as json_file:
         data = json.load(json_file)
         all_Users = data["name"]
@@ -63,10 +77,28 @@ def check_user_login():
         else:
             return "fail"
 
+# function for returning the add cars form html
 
+@app.route("/addCars")
+def add_cars_form():
+    add_form = get_html("addCars")
+    return add_form
 
-
-
+# add cars to json file
+@app.route("/cars",methods=["POST"])
+def Add_cars():
+    file_name = "cars.json"
+    brand = flask.request.form.get("brand")
+    color = flask.request.form.get("color")
+    price = flask.request.form.get("price")
+    car_object = Car(brand,color,price)
+    with open("cars.json") as json_file:
+        data_file = json.load(json_file)
+        All_cars_data = data_file["cars"]
+        car_data = {"id":car_object.id,"brand":car_object.brand,"color":car_object.color,"price":car_object.price}
+        All_cars_data.append(car_data)
+        write_json(data_file,file_name)
+    return "hello"
 
 
 
