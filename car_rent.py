@@ -1,6 +1,7 @@
 import flask
 import json
-app = flask.Flask("car_rent")
+app = flask.Flask(__name__)
+
 id =1
 # function for returning the html pages
 def get_html(page_name):
@@ -38,3 +39,37 @@ def call():
     return "added"
 
 
+# return the login form html
+@app.route("/loginForm")
+def login():
+    gethtml = get_html("login")
+    return gethtml
+
+
+#  function of login retrieve data and compare it with json file
+
+@app.route("/login",methods=["POST"])
+def check_user_login():
+    email = flask.request.form.get("email")
+    password = flask.request.form.get("password")
+    print(email)
+    print(password)
+    with open("register.json") as json_file:
+        data = json.load(json_file)
+        all_Users = data["name"]
+    for user in all_Users:
+        if user["email"] == email and user["password"] == password:
+            return "hello"
+        else:
+            return "fail"
+
+
+
+
+
+
+
+
+
+if __name__ =='__main__':
+    app.run(debug=True)

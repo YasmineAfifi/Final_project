@@ -5,13 +5,13 @@
             "id": 1,
             "Name": "mohamed",
             "email": "test@gmail.com",
-            "paswsword": "123456"
+            "password": "123456"
         },
         {
             "id": 2,
             "Name": "mona",
             "email": "aa@gmail.com",
-            "paswsword": "12345678"
+            "password": "12345678"
         }
     ]
 }
