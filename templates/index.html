@@ -7,31 +7,24 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    <!-- <form action="/register" method="post">
-        <input type="text" name = "name">
-        <input type="text" name = "email">
-        <input type="text" name = "password">
-        <button type="submit" id="register">Register</button>
-    </form> -->
-
 
 <div id="registerContainer">
     
     <form action="/register" method="post" id="regiserForm">
-        <p>Register</p>
+        <p id="registerTitle">Register</p>
         <div >
-            <input type="text" placeholder="Your full name" class="registerInput">
+            <input type="text" placeholder="Your full name" class="registerInput" required name = "name">
            
         </div>
         <div>
-            <input type="email" placeholder="email" class="registerInput">
+            <input type="email" placeholder="email" class="registerInput" required name = "email">
         </div>
         <div>
-            <input type="password" placeholder="password" class="registerInput">
+            <input type="password" placeholder="password" class="registerInput" required name = "password">
         </div>
 
 
-<button id="submitBtn">Submit</button>
+<button id="registertBtn">Sign up</button>
 <p>Already have an acccount? <a href="/loginForm" id="loginLink">Login</a></p>
 
     </form>

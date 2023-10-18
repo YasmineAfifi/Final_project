@@ -5,17 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
     <link rel="stylesheet" href="../static/css/output.css">
+    <link rel="stylesheet" href="../static/css/style.css">
 
 </head>
 <body>
 
-    hello
-    <!-- <form action="/login" method="post">
-      
-        <input type="text" name = "email">
-        <input type="text" name = "password">
-        <button type="submit" id="login">Login</button>
-    </form> -->
+    <div class="loginPage" >
+        
+    <div>
+        <img src="/static/images/loginImage.png" alt="loginImage" width="60%">
+    </div>
+
+    <div id="loginContainer">
+
+    <form action="/login" method="post" id="loginForm">
+
+        <p id="loginTitle">Login</p>
+
+      <div>
+
+        <input type="email" name = "email" placeholder="Enter E-mail" class="loginInput">
+
+      </div>
+      <div>
+
+        <input type="password" name = "password" placeholder="Password" class="loginInput">
+
+      </div>
+
+        <button type="submit" id="loginBtn">Login</button>
+        <p>Don't have an account? <a href="/" id="registerLink">Sign Up</a></p>
+    </form>
+
+    </div>
+
+</div>
 
 
 

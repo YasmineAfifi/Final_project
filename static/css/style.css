@@ -5,7 +5,7 @@ body{
 /*  container for the register form */
 #registerContainer
 {
- background-color:#e8e8e8 ;
+ background-color:#212121 ;
  min-height: 100vh;
  position: relative;
  margin: 0 auto;
@@ -14,19 +14,19 @@ body{
  justify-content: center;
  align-items: center;
 }
-/* register form */
+/* register form  */
 #regiserForm
 {  
    position: absolute;
-   background-color: #fff;
+   background-color: #dfdbdb;
    padding: 16px;
    max-width: 350px;
    border-radius:8px;
-
-  
+   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    text-align: center;
 }
-/* inputs in the register form */
-.registerInput
+/* inputs in the register form  and login form*/
+.registerInput,.loginInput
 {
     background-color: #fff;
     padding: 16px;
@@ -40,25 +40,65 @@ body{
     margin: 8px 0;
 
 }
+/* focus on register and login form input */
+.registerInput:focus,.loginInput:focus {
+        border-color: #DFC51B;
+ }
+      
+/* login and register link in register page */
 
-/* login link in register page */
-
-#loginLink{
+#loginLink,#registerLink{
 
     text-decoration: none;
+    /* color: #857c7c; */
+    color: #5e5e5e;
 }
-
-#submitBtn{
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    background-color: #4F46E5;
+/*register button and login button  for register and login form   */
+#registertBtn,#loginBtn{
+  
+    padding: 12px 20px ;
+    background-color: #DFC51B;
     color: #ffffff;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    font-size:14px;
+    line-height: 20px;
     font-weight: 500;
     width: 100%;
-    border-radius: 0.5rem;
+    border-radius: 8px;
     text-transform: uppercase;
+    outline: none;
+    border: 1px solid #e5e7eb;
+}
+/*hover of the register button for register form and hover of the login button for login form     */
+#registertBtn:hover,#loginBtn:hover{
+    background-color: #ffca00;
+}
+
+/* register title for register form and login title for login form */
+#registerTitle,#loginTitle{
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    text-align: center;
+    font-family: Menlo, Monaco, Consolas;
+    color: #5e5e5e;
+}
+
+
+
+.loginPage{
+    position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+}
+
+
+#loginForm
+{  
+   /* position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh; */
 }

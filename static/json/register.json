@@ -11,12 +11,6 @@
             "name": "mona",
             "email": "test@gmail.com",
             "paswsword": "123456"
-        },
-        {
-            "id": 1,
-            "name": null,
-            "email": null,
-            "paswsword": null
         }
     ]
 }
