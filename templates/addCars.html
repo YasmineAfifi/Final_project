@@ -7,11 +7,12 @@
 </head>
 <body>
     
-    <form action="/cars" method="post">
+    <form action="/cars" method="post" enctype="multipart/form-data">
       
         <input type="text" name = "brand">
         <input type="text" name = "color">
         <input type="text" name = "price">
+        <input type="file" name="img">
         <button type="submit" id="addCars">Add</button>
     </form>
 </body>

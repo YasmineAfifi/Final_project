@@ -1,40 +1,32 @@
 {
     "cars": [
         {
+            "id": 0,
+            "brand": "bbbb",
+            "color": "blue",
+            "price": "1507j",
+            "image": "noteAppChart.png"
+        },
+        {
+            "id": 0,
+            "brand": "bbbb",
+            "color": "1222",
+            "price": "120",
+            "image": "noteAppChart.png"
+        },
+        {
             "id": 1,
-            "brand": "BMW",
-            "color": "black",
-            "price": "2000 LE"
+            "brand": "vvv",
+            "color": "bbbb",
+            "price": "jjjj",
+            "image": "chart for converters.png"
         },
         {
             "id": 2,
-            "brand": "Fiat",
-            "color": "Red",
-            "price": "300 LE"
-        },
-        {
-            "id": 0,
-            "brand": "bbbb",
-            "color": "blue",
-            "price": "1507j"
-        },
-        {
-            "id": 0,
-            "brand": "bbbb",
-            "color": "blue",
-            "price": "1507j"
-        },
-        {
-            "id": 1,
-            "brand": "bbbb",
-            "color": "ggg",
-            "price": "666"
-        },
-        {
-            "id": 0,
-            "brand": "bbbb",
-            "color": "ggg",
-            "price": "111"
+            "brand": "yasmi",
+            "color": "yasmine",
+            "price": "22222",
+            "image": "chart for converters.png"
         }
     ]
 }

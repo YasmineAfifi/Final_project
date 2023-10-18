@@ -1,7 +1,7 @@
 import flask
 import json
 import itertools
-from flask import  render_template
+from flask import  render_template,request
 from pprint import pprint
 import inspect
 app = flask.Flask(__name__)
@@ -98,16 +98,25 @@ def add_cars_form():
 @app.route("/cars",methods=["POST"])
 def Add_cars():
     file_name = "cars.json"
+    image_uploaded = request.files["img"]
+
     brand = flask.request.form.get("brand")
     color = flask.request.form.get("color")
     price = flask.request.form.get("price")
+    img_name= image_uploaded.filename
+    upload_path = "static/images/"+img_name
     car_object = Car(brand,color,price)
     with open("cars.json") as json_file:
         data_file = json.load(json_file)
         All_cars_data = data_file["cars"]
-        car_data = {"id":car_object.id,"brand":car_object.brand,"color":car_object.color,"price":car_object.price}
+        car_data = {"id":car_object.id,"brand":car_object.brand,"color":car_object.color,"price":car_object.price,"image":img_name}
         All_cars_data.append(car_data)
-        write_json(data_file,file_name)
+        if img_name !="":
+            image_uploaded.save(upload_path)
+            write_json(data_file,file_name)
+        else:
+            return "All elements are required"
+
     return "Added successfully"
 
 
