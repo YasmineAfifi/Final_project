@@ -151,9 +151,16 @@ def reserve_car():
        return "reserved"
 
 
+@app.route("/carDetails/<int:car_id>")
+def getDetails(car_id):
+    with open("cars.json") as file:
+        allData = json.load(file)
+        data_array = allData["cars"]
+        for car in data_array:
+            if car["id"] == car_id:
+                return "hello"
 
-
-
+    return data_array
 
 
 
