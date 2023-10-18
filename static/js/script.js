@@ -9,3 +9,14 @@ userIdInput.value = userId
 
 
 
+// function Func() { 
+//     fetch("./static/json/cars.json") 
+//         .then((res) => { 
+//         return res.json(); 
+//     }) 
+//     .then((data) => console.log(data)); 
+// }
+
+// Func()
+
+

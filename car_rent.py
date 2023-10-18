@@ -20,7 +20,7 @@ class Car:
     @staticmethod
     def Show_All_Cars():
  
-        with open("cars.json") as json_file:
+        with open("./static/json/cars.json") as json_file:
             cars = json.load(json_file)
             All_cars = cars["cars"]
 
@@ -51,9 +51,9 @@ def add_user():
     name = flask.request.form.get("name")
     email = flask.request.form.get("email")
     password = flask.request.form.get("password")
-    with open("register.json") as json_file:
+    with open("./static/json/register.json") as json_file:
         global id
-        file_name="register.json"
+        file_name="./static/json/register.json"
         data = json.load(json_file)
         temp =data["name"]
         y={"id":id,"name":name,"email":email,"paswsword":password}
@@ -76,7 +76,7 @@ def login():
 def check_user_login():
     email = flask.request.form.get("email")
     password = flask.request.form.get("password")
-    with open("register.json") as json_file:
+    with open("./static/json/register.json") as json_file:
         data = json.load(json_file)
         all_Users = data["name"]
     for user in all_Users:
@@ -97,16 +97,16 @@ def add_cars_form():
 # add cars to json file
 @app.route("/cars",methods=["POST"])
 def Add_cars():
-    file_name = "cars.json"
+    file_name = "./static/json/cars.json"
     image_uploaded = request.files["img"]
 
     brand = flask.request.form.get("brand")
     color = flask.request.form.get("color")
     price = flask.request.form.get("price")
     img_name= image_uploaded.filename
-    upload_path = "static/images/"+img_name
+    upload_path = "./static/images/"+img_name
     car_object = Car(brand,color,price)
-    with open("cars.json") as json_file:
+    with open("./static/json/cars.json") as json_file:
         data_file = json.load(json_file)
         All_cars_data = data_file["cars"]
         car_data = {"id":car_object.id,"brand":car_object.brand,"color":car_object.color,"price":car_object.price,"image":img_name}
@@ -135,14 +135,14 @@ def show_reserve_form():
 # function for reserve car
 @app.route("/reserve",methods = ["POST"])
 def reserve_car():
-    file_name = "reservation.json"
+    file_name = "./static/json/reservation.json"
     user_Id = flask.request.form.get("userId")
     username = flask.request.form.get("userName")
     brand = flask.request.form.get("brand")
     color = flask.request.form.get("color")
     price = flask.request.form.get("price")
     
-    with open("reservation.json") as file_json:
+    with open("./static/json/reservation.json") as file_json:
        reserve_file = json.load(file_json)
        reserve_data = reserve_file["reservedCars"]
        new_reservation = {"user_Id":user_Id,"username":username,"brand":brand,"color":color,"price":price}
@@ -153,7 +153,7 @@ def reserve_car():
 
 @app.route("/carDetails/<int:car_id>")
 def getDetails(car_id):
-    with open("cars.json") as file:
+    with open("./static/json/cars.json") as file:
         allData = json.load(file)
         data_array = allData["cars"]
         for car in data_array:
@@ -163,7 +163,10 @@ def getDetails(car_id):
     return data_array
 
 
-
+@app.route("/home")
+def checkData():
+    geto = get_html("home")
+    return geto
 
 if __name__ =='__main__':
     app.run(debug=True)
