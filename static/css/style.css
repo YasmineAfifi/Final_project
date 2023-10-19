@@ -1,0 +1,42 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+/*  container for the register form */
+#registerContainer
+{
+ background-color:#e8e8e8 ;
+ min-height: 100vh;
+ position: relative;
+ margin: 0 auto;
+ text-align: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+/* register form */
+#regiserForm
+{  
+   position: absolute;
+   background-color: #fff;
+   padding: 16px;
+   max-width: 350px;
+   border-radius:8px;
+
+  
+}
+/* inputs in the register form */
+.registerInput
+{
+    background-color: #fff;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 20px;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: 1px solid #e5e7eb;
+    margin: 8px 0;
+
+}

@@ -4,14 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Form</title>
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    <form action="/register" method="post">
+    <!-- <form action="/register" method="post">
         <input type="text" name = "name">
         <input type="text" name = "email">
         <input type="text" name = "password">
         <button type="submit" id="register">Register</button>
-    </form>
+    </form> -->
 
+
+<div id="registerContainer">
+    
+    <form action="/register" method="post" id="regiserForm">
+        <p>Register</p>
+        <div >
+            <input type="text" placeholder="Your full name" class="registerInput">
+           
+        </div>
+        <div>
+            <input type="email" placeholder="email" class="registerInput">
+        </div>
+        <div>
+            <input type="password" placeholder="password" class="registerInput">
+        </div>
+
+
+<button>Submit</button>
+<p>Already have an acccount? <a href="/loginForm">Login</a></p>
+
+    </form>
+</div>
 </body>
 </html>
