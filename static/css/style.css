@@ -84,9 +84,9 @@ body{
 }
 
 
-
+/* container of login page */
 .loginPage{
-    position: relative;
+   position: relative;
    display: flex;
    justify-content: center;
    align-items: center;
