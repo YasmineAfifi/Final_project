@@ -568,10 +568,9 @@ video {
   }
 }
 
-.static {
-  position: static;
-}
-
 .hidden {
   display: none;
 }
+
+
+

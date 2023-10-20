@@ -1,11 +1,14 @@
 
 const userIdInput = document.getElementById("userId");
 const userNameInput =document.getElementById("userName");
-const userId =   localStorage.getItem("userId");
-const userName = localStorage.getItem("userName");
-// set hidden value with local storage value
-userNameInput.value = userName;
-userIdInput.value = userId;
+if(localStorage.getItem("userId")!=null && localStorage.getItem("userName")!=null ){
+    const userId =   localStorage.getItem("userId");
+    const userName = localStorage.getItem("userName");
+    // set hidden value with local storage value
+    userNameInput.value = userName;
+    userIdInput.value = userId;
+}
+
 
 
 

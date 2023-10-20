@@ -1,33 +1,34 @@
-body{
+body {
     margin: 0px;
     padding: 0px;
 }
+
 /*  container for the register form */
-#registerContainer
-{
- background-color:#212121 ;
- min-height: 100vh;
- position: relative;
- margin: 0 auto;
- text-align: center;
- display: flex;
- justify-content: center;
- align-items: center;
+#registerContainer {
+    background-color: #212121;
+    min-height: 100vh;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 /* register form  */
-#regiserForm
-{  
-   position: absolute;
-   background-color: #dfdbdb;
-   padding: 16px;
-   max-width: 350px;
-   border-radius:8px;
-   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+#regiserForm {
+    position: absolute;
+    background-color: #dfdbdb;
+    padding: 16px;
+    max-width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
     text-align: center;
 }
+
 /* inputs in the register form  and login form*/
-.registerInput,.loginInput
-{
+.registerInput,
+.loginInput {
     background-color: #fff;
     padding: 16px;
     font-size: 14px;
@@ -40,26 +41,31 @@ body{
     margin: 8px 0;
 
 }
+
 /* focus on register and login form input */
-.registerInput:focus,.loginInput:focus {
-        border-color: #DFC51B;
- }
-      
+.registerInput:focus,
+.loginInput:focus {
+    border-color: #DFC51B;
+}
+
 /* login and register link in register page */
 
-#loginLink,#registerLink{
+#loginLink,
+#registerLink {
 
     text-decoration: none;
     /* color: #857c7c; */
     color: #5e5e5e;
 }
+
 /*register button and login button  for register and login form   */
-#registertBtn,#loginBtn{
-  
-    padding: 12px 20px ;
+#registertBtn,
+#loginBtn {
+
+    padding: 12px 20px;
     background-color: #DFC51B;
     color: #ffffff;
-    font-size:14px;
+    font-size: 14px;
     line-height: 20px;
     font-weight: 500;
     width: 100%;
@@ -68,13 +74,16 @@ body{
     outline: none;
     border: 1px solid #e5e7eb;
 }
+
 /*hover of the register button for register form and hover of the login button for login form     */
-#registertBtn:hover,#loginBtn:hover{
+#registertBtn:hover,
+#loginBtn:hover {
     background-color: #ffca00;
 }
 
 /* register title for register form and login title for login form */
-#registerTitle,#loginTitle{
+#registerTitle,
+#loginTitle {
     font-size: 28px;
     font-weight: 600;
     letter-spacing: -1px;
@@ -85,20 +94,80 @@ body{
 
 
 /* container of login page */
-.loginPage{
-   position: relative;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
+.loginPage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* image for cards */
+.imageCard {
+    object-fit: cover;
+    width: 100%;
+}
+
+/* container for each card */
+.cards {
+
+    max-width: 300px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+/* container for all cards */
+#cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+/* button found in the cards */
+.detailsBtn,
+.reserveBtn {
+    padding: 10px 15px;
+    background-color: #007ACC;
+    border-radius: 5px;
+    border: none;
+    width: 50%;
+}
+
+/* buttons for home page */
+.cardsBtn {
+    margin: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+/* all card container to display it in the middle */
+
+#allCardsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+/* card title in home card */
+.cardTitle {}
+
+.menuContainer {
+    position: absolute;
+    top: 2%;
+    margin: 30px;
+    right: 20%;
+}
+
+.menuItemList {
+    display: flex;
+    gap: 16px;
+    color: white;
 }
 
 
-#loginForm
-{  
-   /* position: relative;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100vh; */
+.welcomeDiv {
+    color: white;
+    position: absolute;
+    top: 2%;
+    margin: 30px;
+    right: 0%;
 }

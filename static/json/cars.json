@@ -2,38 +2,38 @@
     "cars": [
         {
             "id": 0,
-            "brand": "bbbb",
+            "brand": "Mercedes Grand Sedan",
             "color": "blue",
             "price": "1507j",
-            "image": "noteAppChart.png"
+            "image": "car.jpg"
         },
         {
             "id": 0,
-            "brand": "bbbb",
+            "brand": "Mercedes Grand Sedan",
             "color": "1222",
             "price": "120",
-            "image": "noteAppChart.png"
+            "image": "car.jpg"
         },
         {
             "id": 1,
             "brand": "vvv",
-            "color": "bbbb",
+            "color": "Mercedes Grand Sedan",
             "price": "jjjj",
-            "image": "chart for converters.png"
+            "image": "reservation.jpg"
         },
         {
             "id": 2,
-            "brand": "yasmi",
+            "brand": "Mercedes Grand Sedan",
             "color": "yasmine",
             "price": "22222",
-            "image": "chart for converters.png"
+            "image": "reservation.jpg"
         },
         {
             "id": 0,
-            "brand": "hhh",
+            "brand": "Mercedes Grand Sedan",
             "color": "black",
             "price": "888",
-            "image": "chart for converters.png"
+            "image": "reservation.jpg"
         }
     ]
 }
