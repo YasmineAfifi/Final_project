@@ -128,15 +128,10 @@ body {
 }
 
 
-.welcomeDiv {
-  color: white;
-  position: absolute;
-  top: 2%;
-  margin: 30px;
-  right: 0%;
+.welcomeLink{
+  list-style: none;
+  margin-left: 20px;
 }
-
-
 
 
 /* navbar container */
@@ -195,7 +190,7 @@ body {
   width: 100%;
 
 }
-
+/* step image background */
 .stepsImage {
   background-image: url('/static/images/LM5OT587.jpg');
   height: 450px;
@@ -205,7 +200,7 @@ body {
   background-position: center;
   filter: brightness(50%);
 }
-
+/* footer  */
 footer{
   background: #00000021;
     text-align: center;

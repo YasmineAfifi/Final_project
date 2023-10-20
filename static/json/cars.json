@@ -9,22 +9,22 @@
         },
         {
             "id": 0,
-            "brand": "Mercedes Grand Sedan",
-            "color": "1222",
+            "brand": "Toyota",
+            "color": "red",
             "price": "120",
             "image": "2.jpg"
         },
         {
             "id": 1,
-            "brand": "Mercedes Grand Sedan",
-            "color": "Mercedes Grand Sedan",
+            "brand": "Chevrolet",
+            "color": "blue",
             "price": "jjjj",
             "image": "4.jpg"
         },
         {
             "id": 2,
             "brand": "Mercedes Grand Sedan",
-            "color": "yasmine",
+            "color": "yellow",
             "price": "22222",
             "image": "3.jpg"
         },

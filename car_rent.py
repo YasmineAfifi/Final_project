@@ -170,6 +170,22 @@ def getDetails(car_id):
     return data_array
 
 
+# search function for color and brand search
+@app.route("/search")
+def search():
+    search_value = flask.request.args.get("search").lower()
+    Search_result = []
+
+    with open("./static/json/cars.json") as file:
+        cars_data = json.load(file)
+        cars_data_array = cars_data["cars"]
+    
+        for cars in cars_data_array:
+
+            if cars["brand"].lower().find(search_value)!=-1 or cars["color"].lower().find(search_value)!=-1:
+                Search_result.append(cars)
+       
+    return Search_result
 
 
 if __name__ =='__main__':

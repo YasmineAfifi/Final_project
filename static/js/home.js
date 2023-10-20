@@ -1,5 +1,5 @@
-// const welcomeUser = document.getElementById("welcomeUser");
-// welcomeUser.innerText = "welcome " + localStorage.getItem("userName");
+const welcomeUser = document.getElementById("welcomeUser");
+welcomeUser.innerText = "welcome " + localStorage.getItem("userName");
 
 function Func() {
     fetch("./static/json/cars.json")

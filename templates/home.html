@@ -16,6 +16,7 @@
 </head>
 
 <body>
+  <!-- Start image and Nav -->
   <div class="position-relative mb-3">
     <div>
       <img src="../static/images/6.jpg" alt="homeImage" width="100%" id="homeImage">
@@ -34,7 +35,7 @@
 
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <span class="navbar-brand">Rent-Car</span>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -48,11 +49,19 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="/">Reservation</a>
               </li>
+
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">Add Car</a>
+              </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" role="search" action="/search" method="get">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+              <button class="btn btn-outline-primary" type="submit">Search</button>
             </form>
+            <li class="welcomeLink">
+              <div id="welcomeUser"></div>
+              
+            </li>
           </div>
         </div>
       </nav>
@@ -73,7 +82,9 @@
 
 
   </div>
+<!-- End image and Nav -->
 
+<!-- Start Steps Container -->
 
   <div class="position-relative d-flex justify-content-center ">
 
@@ -150,6 +161,7 @@
   </div>
 
 
+<!-- End Steps Container -->
 
 
 
@@ -177,7 +189,7 @@
   <script src="/static/js/home.js"></script>
 
 
-
+<!-- Start Footer -->
   <footer>
     <div>
 
@@ -185,6 +197,9 @@
     </div>
 
   </footer>
+
+  
+<!-- End Footer -->
 </body>
 
 </html>
