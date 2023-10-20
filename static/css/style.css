@@ -1,51 +1,53 @@
 body {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+  position: relative;
 }
 
 /*  container for the register form */
 #registerContainer {
-    background-color: #212121;
-    min-height: 100vh;
-    position: relative;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #212121;
+  min-height: 100vh;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* register form  */
 #regiserForm {
-    position: absolute;
-    background-color: #dfdbdb;
-    padding: 16px;
-    max-width: 350px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
-    text-align: center;
+  position: absolute;
+  background-color: #dfdbdb;
+  padding: 16px;
+  max-width: 350px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+  text-align: center;
 }
 
 /* inputs in the register form  and login form*/
 .registerInput,
 .loginInput {
-    background-color: #fff;
-    padding: 16px;
-    font-size: 14px;
-    line-height: 20px;
-    width: 300px;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    outline: none;
-    border: 1px solid #e5e7eb;
-    margin: 8px 0;
+  background-color: #fff;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  outline: none;
+  border: 1px solid #e5e7eb;
+  margin: 8px 0;
 
 }
 
 /* focus on register and login form input */
 .registerInput:focus,
 .loginInput:focus {
-    border-color: #DFC51B;
+  border-color: #DFC51B;
 }
 
 /* login and register link in register page */
@@ -53,148 +55,163 @@ body {
 #loginLink,
 #registerLink {
 
-    text-decoration: none;
-    /* color: #857c7c; */
-    color: #5e5e5e;
+  text-decoration: none;
+  /* color: #857c7c; */
+  color: #5e5e5e;
 }
 
 /*register button and login button  for register and login form   */
 #registertBtn,
 #loginBtn {
 
-    padding: 12px 20px;
-    background-color: #DFC51B;
-    color: #ffffff;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 500;
-    width: 100%;
-    border-radius: 8px;
-    text-transform: uppercase;
-    outline: none;
-    border: 1px solid #e5e7eb;
+  padding: 12px 20px;
+  background-color: #DFC51B;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 8px;
+  text-transform: uppercase;
+  outline: none;
+  border: 1px solid #e5e7eb;
 }
 
 /*hover of the register button for register form and hover of the login button for login form     */
 #registertBtn:hover,
 #loginBtn:hover {
-    background-color: #ffca00;
+  background-color: #ffca00;
 }
 
 /* register title for register form and login title for login form */
 #registerTitle,
 #loginTitle {
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: -1px;
-    text-align: center;
-    font-family: Menlo, Monaco, Consolas;
-    color: #5e5e5e;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  text-align: center;
+  font-family: Menlo, Monaco, Consolas;
+  color: #5e5e5e;
 }
 
 
 /* container of login page */
 .loginPage {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 /* image for cards */
 .imageCard {
-    object-fit: cover;
-    width: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 /* container for each card */
 .cards {
 
-    max-width: 300px;
-    border-radius: 8px;
-    border: 1px solid black;
+  max-width: 300px;
+  border-radius: 8px;
+  border: 1px solid black;
 }
 
-/* container for all cards */
-#cardsContainer {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-}
 
-/* button found in the cards */
+
+/* buttons found in the cards */
 .detailsBtn,
 .reserveBtn {
-    padding: 10px 15px;
-    background-color: #007ACC;
-    border-radius: 5px;
-    border: none;
-    width: 50%;
-}
 
-/* buttons for home page */
-.cardsBtn {
-    margin: 20px;
-    display: flex;
-    gap: 12px;
-}
-
-/* all card container to display it in the middle */
-
-#allCardsContainer {
-    display: flex;
-    justify-content: center;
-}
-
-/* card title in home card */
-.cardTitle {}
-
-.menuContainer {
-    position: absolute;
-    top: 2%;
-    margin: 30px;
-    right: 20%;
-}
-
-.menuItemList {
-    display: flex;
-    gap: 16px;
-    color: white;
+  width: 100%;
 }
 
 
 .welcomeDiv {
-    color: white;
-    position: absolute;
-    top: 2%;
-    margin: 30px;
-    right: 0%;
+  color: white;
+  position: absolute;
+  top: 2%;
+  margin: 30px;
+  right: 0%;
 }
 
-.searchInput {
-    max-width: 190px;
-    padding: 15px;
-    font-size: 17px;
-    color: black;
-    border-top-left-radius: 0.5em;
-    border-bottom-left-radius: 0.5em;
-    margin-right: -10px;
-    outline: none;
-  }
-  
-  .searchbtn {
-    border: none;
-    background-color: #1363DF;
-    padding: 15px;
-    font-size: 17px;
-    color: #fff;
-    border-top-right-radius: 0.5em;
-    border-bottom-right-radius: 0.5em;
-  }
 
-  #serchFormContainer{
 
+
+/* navbar container */
+.navContainer {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+/* navbar background color */
+.navbar {
+  background-color: #00000021 !important;
+}
+
+/* image for home page */
+#homeImge {
+  height: 600px;
+  object-fit: cover;
+}
+
+/* buttons on the card home page */
+.btnCardContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* image container for car home page */
+.imgContainerCard {
+  width: 100%;
+  height: 250px;
+
+}
+
+/* image of the card */
+.cardImg {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* link for title in home page card */
+.titleCardDetails {
+  text-decoration: none;
+  color: black;
+}
+
+/* steps container in home page */
+.stepsContainer {
+  position: absolute;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  width: 100%;
+
+}
+
+.stepsImage {
+  background-image: url('/static/images/LM5OT587.jpg');
+  height: 450px;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(50%);
+}
+
+footer{
+  background: #00000021;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
     position: absolute;
-    top: 0px;
-  }
+    top: 100%;
+    width: 100%;
+}

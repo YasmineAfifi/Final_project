@@ -1,5 +1,5 @@
-const welcomeUser = document.getElementById("welcomeUser");
-welcomeUser.innerText = "welcome " + localStorage.getItem("userName");
+// const welcomeUser = document.getElementById("welcomeUser");
+// welcomeUser.innerText = "welcome " + localStorage.getItem("userName");
 
 function Func() {
     fetch("./static/json/cars.json")
@@ -9,49 +9,62 @@ function Func() {
             for (let index = 0; index < data.cars.length; index++) {
                 let element = data.cars[index];
                 // create the card container
-
+                const allCardsContainer = document.getElementById("allCardsContainer");
                 const cardsContainer = document.getElementById("cardsContainer");
-                const card = document.createElement("div");
-                card.className = "cards";
-                // create image div
-                const image = document.createElement("div");
-                image.className = "imageCard";
-                const cardImage = document.createElement("img");
-                cardImage.src = `../static/images/${element.image}`;
-                image.appendChild(cardImage);
-                card.appendChild(image);
-                // create card content
                 const cardContent = document.createElement("div");
-                cardContent.className = "cardContent";
-                card.appendChild(cardContent);
-                // create the anchor title for the brand
-                const cardAnchor = document.createElement("a");
-                cardAnchor.innerText = element.brand;
-                cardAnchor.href = `/carDetails/${element.id}`;
-                const cardTitle = document.createElement("p");
-                cardTitle.className = "cardTitle";
-                cardTitle.appendChild(cardAnchor)
-                cardContent.appendChild(cardTitle);
-                // create the button for the card
-                const cardDetailsBtn = document.createElement("Button")
-                cardDetailsBtn.innerText = "Details"
-                cardDetailsBtn.className = "detailsBtn";
-                const cardReserveBtn = document.createElement("Button")
-                cardReserveBtn.innerText = "Reserve";
-                cardReserveBtn.className = "reserveBtn";
-                cardDetailsBtn.onclick = function redirctToUrl() {
+                cardContent.className = "col mt-3 mb-3";
+                cardsContainer.appendChild(cardContent);
+                // create each card
+                const card = document.createElement("div");
+                card.className = "card h-100";
+                cardContent.appendChild(card);
+                // create image
+                const imgContainerDiv = document.createElement("div");
+                const image = document.createElement("img");
+                imgContainerDiv.className = "imgContainerCard"
+                image.className="card-img-top cardImg";
+                image.src = `../static/images/${element.image}`;
+                imgContainerDiv.appendChild(image);
+
+                // create card body 
+                const cardbody = document.createElement("div");
+                cardbody.className="card-body";
+                card.appendChild(cardbody);
+                cardbody.appendChild(imgContainerDiv);
+                // create text for car brand
+                const titleAnchorDetails = document.createElement("a");
+                titleAnchorDetails.className="titleCardDetails"
+                titleAnchorDetails.href =`/carDetails/${element.id}`;
+                const carBrand = document.createElement("h5");
+                titleAnchorDetails.appendChild(carBrand);
+                carBrand.className="card-title py-3";
+                carBrand.innerText=element.brand;
+                const btnCardContainer = document.createElement("div");
+                // create the card buttons
+               btnCardContainer.className="btnCardContainer pb-3";
+                const reserveBtn = document.createElement("button");
+               
+                const DetailsBtn = document.createElement("button");
+                DetailsBtn.onclick = function redirctToUrl() {
                     window.location.href = `/carDetails/${element.id}`;
                 };
-                cardContent.appendChild(cardDetailsBtn);
-                cardContent.appendChild(cardReserveBtn);
-                cardsContainer.appendChild(card);
-                // create container for card button
+                cardbody.appendChild(titleAnchorDetails);
+                cardbody.appendChild(reserveBtn);
+                cardbody.appendChild(DetailsBtn);
+                reserveBtn.className="btn btn-primary reserveBtn";
+                reserveBtn.innerHTML = "Reserve"
+                DetailsBtn.className="btn btn-secondary detailsBtn";
+                DetailsBtn.innerHTML = "Details"
+              
+                btnCardContainer.appendChild(reserveBtn);
+                btnCardContainer.appendChild(DetailsBtn);
 
-                const btnContainer = document.createElement("div");
-                btnContainer.className="cardsBtn";
-                btnContainer.appendChild(cardDetailsBtn);
-                btnContainer.appendChild(cardReserveBtn);
-                card.appendChild(btnContainer);
+                cardbody.appendChild(btnCardContainer);
+                allCardsContainer.appendChild(cardsContainer);
+
+
+
+
 
                 // console.log(element);
             }

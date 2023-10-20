@@ -568,6 +568,24 @@ video {
   }
 }
 
+.collapse {
+  visibility: collapse;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.me-2 {
+  -webkit-margin-end: 0.5rem;
+          margin-inline-end: 0.5rem;
+}
+
+.me-auto {
+  -webkit-margin-end: auto;
+          margin-inline-end: auto;
+}
+
 .hidden {
   display: none;
 }

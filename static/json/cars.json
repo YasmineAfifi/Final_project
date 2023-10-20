@@ -12,28 +12,28 @@
             "brand": "Mercedes Grand Sedan",
             "color": "1222",
             "price": "120",
-            "image": "car.jpg"
+            "image": "2.jpg"
         },
         {
             "id": 1,
-            "brand": "vvv",
+            "brand": "Mercedes Grand Sedan",
             "color": "Mercedes Grand Sedan",
             "price": "jjjj",
-            "image": "reservation.jpg"
+            "image": "4.jpg"
         },
         {
             "id": 2,
             "brand": "Mercedes Grand Sedan",
             "color": "yasmine",
             "price": "22222",
-            "image": "reservation.jpg"
+            "image": "3.jpg"
         },
         {
             "id": 0,
             "brand": "Mercedes Grand Sedan",
             "color": "black",
             "price": "888",
-            "image": "reservation.jpg"
+            "image": "1.jpg"
         }
     ]
 }

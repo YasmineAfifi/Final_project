@@ -78,12 +78,11 @@ def check_user_login():
             if user["email"] == email and user["password"] == password:
                 id = user["id"]
                 name = user["name"]
-
                 session["id"]=id
                 session["name"]=name
-                return redirect(url_for('.home_page'))
+                return redirect(url_for('home_page'))
             else:
-                return "fail"
+                return redirect(url_for('check_user_login'))
     else:
         loginForm = get_html("login")
         return loginForm
