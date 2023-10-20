@@ -1,11 +1,11 @@
 import flask
 import json
 import itertools
-from flask import  render_template,request
+from flask import  redirect, render_template,request, url_for,session
 from pprint import pprint
 import inspect
 app = flask.Flask(__name__)
-
+app.secret_key = "security Key"
 # class Cars 
 class Car:
     id_obj = itertools.count()
@@ -55,7 +55,7 @@ def add_user():
         global id
         file_name="./static/json/register.json"
         data = json.load(json_file)
-        temp =data["name"]
+        temp =data["names"]
         y={"id":id,"name":name,"email":email,"paswsword":password}
         temp.append(y)
         id= id + 1
@@ -63,30 +63,38 @@ def add_user():
     return "added"
 
 
-# return the login form html
-@app.route("/loginForm")
-def login():
-    gethtml = get_html("login")
-    return gethtml
-
 
 #  function of login retrieve data and compare it with json file
 
-@app.route("/login",methods=["POST"])
+@app.route("/login",methods=["GET","POST"])
 def check_user_login():
-    email = flask.request.form.get("email")
-    password = flask.request.form.get("password")
-    with open("./static/json/register.json") as json_file:
-        data = json.load(json_file)
-        all_Users = data["name"]
-    for user in all_Users:
-        if user["email"] == email and user["password"] == password:
-            id = user["id"]
-            name = user["name"]
-            return render_template("home.html",id=id,name=name)
-        else:
-            return "fail"
+    if request.method == "POST":
+        email = flask.request.form.get("email")
+        password = flask.request.form.get("password")
+        with open("./static/json/register.json") as json_file:
+            data = json.load(json_file)
+            all_Users = data["names"]
+        for user in all_Users:
+            if user["email"] == email and user["password"] == password:
+                id = user["id"]
+                name = user["name"]
 
+                session["id"]=id
+                session["name"]=name
+                return redirect(url_for('.home_page'))
+            else:
+                return "fail"
+    else:
+        loginForm = get_html("login")
+        return loginForm
+    
+@app.route("/home")
+def home_page():
+    name = session.get("name")
+    id   = session.get("id")
+   
+
+    return render_template("home.html",id=id,name=name)
 # function for returning the add cars form html
 
 @app.route("/addCars")
@@ -163,10 +171,7 @@ def getDetails(car_id):
     return data_array
 
 
-@app.route("/home")
-def checkData():
-    geto = get_html("home")
-    return geto
+
 
 if __name__ =='__main__':
     app.run(debug=True)

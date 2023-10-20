@@ -171,3 +171,30 @@ body {
     margin: 30px;
     right: 0%;
 }
+
+.searchInput {
+    max-width: 190px;
+    padding: 15px;
+    font-size: 17px;
+    color: black;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    margin-right: -10px;
+    outline: none;
+  }
+  
+  .searchbtn {
+    border: none;
+    background-color: #1363DF;
+    padding: 15px;
+    font-size: 17px;
+    color: #fff;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+  }
+
+  #serchFormContainer{
+
+    position: absolute;
+    top: 0px;
+  }
