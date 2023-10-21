@@ -102,8 +102,25 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
+  background: #F1F1F1;
 
+}
+/* form and login container in login form */
+.formImageContainer{
+  display: flex;
+    justify-content: space-between;
+    border: 1px solid #5958582e;
+    background: #f9f9f9;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
+/* conatiner for login form */
+#loginContainer{
+
+  margin-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* image for cards */
 .imageCard {
   object-fit: cover;
@@ -127,7 +144,7 @@ body {
   width: 100%;
 }
 
-
+/* welcome for user in navbar */
 .welcomeLink{
   list-style: none;
   margin-left: 20px;
@@ -200,6 +217,16 @@ body {
   background-position: center;
   filter: brightness(50%);
 }
+
+
+/* center the content of the car details */
+
+.CarDetailsContainer{
+  display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+}
 /* footer  */
 footer{
   background: #00000021;
@@ -210,3 +237,28 @@ footer{
     top: 100%;
     width: 100%;
 }
+/* container of no result */
+.containerNoResult{
+  width: 100%;
+  background: lightgray;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+}
+/* text of no result */
+.NoResultText{
+  line-height: 60px;
+}
+/* center page of no text found */
+
+.centerPage{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+
+

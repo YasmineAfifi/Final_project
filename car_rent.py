@@ -160,14 +160,18 @@ def reserve_car():
 
 @app.route("/carDetails/<int:car_id>")
 def getDetails(car_id):
+    car_Details_content = get_html("carDetails")
+    car_details = []
     with open("./static/json/cars.json") as file:
         allData = json.load(file)
         data_array = allData["cars"]
         for car in data_array:
             if car["id"] == car_id:
-                return "hello"
+                car_details.append(car)
+                return render_template("carDetails.html",car_details=car_details)
+        else:
+            return "no id"
 
-    return data_array
 
 
 # search function for color and brand search
@@ -184,10 +188,14 @@ def search():
 
             if cars["brand"].lower().find(search_value)!=-1 or cars["color"].lower().find(search_value)!=-1:
                 # Search_result.append(cars)
-                Search_result+="<div class='col mt-3 mb-3'><div class='card h-100'><div class='card-body'><div class='imgContainerCard'><img class='card-img-top cardImg' src='../static/images/"+cars['image']+"'></div><a class='titleCardDetails'href='/carDetails/'"+str(cars['id'])+"'><h5 class='card-title py-3'>"+cars["brand"]+"</h5></a><div class='btnCardContainer pb-3'><button class='btn btn-primary reserveBtn'>Reserve</button><button class='btn btn-secondary detailsBtn'>Details</button></div></div></div></div>"
+                Search_result+="<div class='col mt-3 mb-3'><div class='card h-100'><div class='card-body'><div class='imgContainerCard'><img class='card-img-top cardImg' src='../static/images/"+cars['image']+"'></div><a class='titleCardDetails'href='/carDetails/"+str(cars['id'])+"'><h5 class='card-title py-3'>"+cars["brand"]+"</h5></a><div class='btnCardContainer pb-3'><a class='btn btn-primary reserveBtn' href='/carDetails/"+str(cars["id"])+"'>Reserve</a><a class='btn btn-secondary detailsBtn'href='/carDetails/"+str(cars["id"])+"' >Details</a></div></div></div></div>"
+        getSearch = get_html("searchResult")
 
-    getSearch = get_html("searchResult")
-    return getSearch.replace("$$search_Container$$",Search_result)
+        if Search_result =="":
+             return getSearch.replace("$$search_Container$$","<div class='centerPage'><div class = 'containerNoResult'><p class='NoResultText'>No Results Found</p></div></div>")
+        else:
+             return getSearch.replace("$$search_Container$$",Search_result)
+
 
 
 if __name__ =='__main__':

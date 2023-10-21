@@ -8,31 +8,31 @@
             "image": "car.jpg"
         },
         {
-            "id": 0,
+            "id": 1,
             "brand": "Toyota",
             "color": "red",
             "price": "120",
             "image": "2.jpg"
         },
         {
-            "id": 1,
+            "id": 2,
             "brand": "Chevrolet",
             "color": "blue",
-            "price": "jjjj",
+            "price": "300",
             "image": "4.jpg"
         },
         {
-            "id": 2,
-            "brand": "Mercedes Grand Sedan",
+            "id": 3,
+            "brand": "BMW",
             "color": "yellow",
-            "price": "22222",
+            "price": "1000",
             "image": "3.jpg"
         },
         {
-            "id": 0,
-            "brand": "Mercedes Grand Sedan",
+            "id": 4,
+            "brand": "Reno",
             "color": "black",
-            "price": "888",
+            "price": "500",
             "image": "1.jpg"
         }
     ]

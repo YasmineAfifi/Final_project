@@ -10,34 +10,35 @@
 </head>
 <body>
 
-    <div class="loginPage" >
+    <div class="loginPage"  >
         
-    <div>
-        <img src="/static/images/loginImage.png" alt="loginImage" width="60%">
+    <div class="formImageContainer">
+        <img src="/static/images/loginImage.png" alt="loginImage" width="50%">
+        
+    <div id="loginContainer" >
+
+      <form action="/login" method="post" id="loginForm">
+  
+          <p id="loginTitle">Login</p>
+  
+        <div>
+  
+          <input type="email" name = "email" placeholder="Enter E-mail" class="loginInput">
+  
+        </div>
+        <div>
+  
+          <input type="password" name = "password" placeholder="Password" class="loginInput">
+  
+        </div>
+  
+          <button type="submit" id="loginBtn">Login</button>
+          <p>Don't have an account? <a href="/" id="registerLink">Sign Up</a></p>
+      </form>
+  
+      </div>
     </div>
 
-    <div id="loginContainer">
-
-    <form action="/login" method="post" id="loginForm">
-
-        <p id="loginTitle">Login</p>
-
-      <div>
-
-        <input type="email" name = "email" placeholder="Enter E-mail" class="loginInput">
-
-      </div>
-      <div>
-
-        <input type="password" name = "password" placeholder="Password" class="loginInput">
-
-      </div>
-
-        <button type="submit" id="loginBtn">Login</button>
-        <p>Don't have an account? <a href="/" id="registerLink">Sign Up</a></p>
-    </form>
-
-    </div>
 
 </div>
 

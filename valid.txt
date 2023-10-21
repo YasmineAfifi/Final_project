@@ -1,0 +1,135 @@
+html
+<form id="myForm">
+  <input type="text" id="name" placeholder="Name">
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <button type="submit">Submit</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+javascript
+document.getElementById("myForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get form field values
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+
+  // Perform validation
+  var errors = [];
+
+  if (name.trim() === "") {
+    errors.push("Name is required");
+  }
+
+  if (email.trim() === "") {
+    errors.push("Email is required");
+  } else if (!isValidEmail(email)) {
+    errors.push("Invalid email format");
+  }
+
+  if (password.trim() === "") {
+    errors.push("Password is required");
+  }
+
+  // Display errors or submit the form
+  if (errors.length > 0) {
+    // Display error messages to the user
+    alert(errors.join("\n"));
+  } else {
+    // No errors, submit the form
+    document.getElementById("myForm").submit();
+  }
+});
+
+// Helper function to validate email format
+function isValidEmail(email) {
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+
+
+
+
+last id
+
+
+
+python
+   import json
+
+   def get_last_id():
+       with open('data.json', 'r') as file:
+           data = json.load(file)
+           last_id = data.get('last_id', 0)
+       return last_id
+   
+
+python
+   def increment_id():
+       last_id = get_last_id()
+       new_id = last_id + 1
+       with open('data.json', 'w') as file:
+           json.dump({'last_id': new_id}, file)
+       return new_id
+   
+
+python
+   from flask import Flask
+
+   app = Flask(__name__)
+
+   @app.route('/')
+   def index():
+       last_id = get_last_id()
+       return f"Last ID: {last_id}"
+
+   @app.route('/increment')
+   def increment():
+       new_id = increment_id()
+       return f"New ID: {new_id}"
+
+
+
+
+
+
+
+
+
+details page
+form validation 
+reservation 
+add car 
+log out 
+restriction
+
+
+
+responsive
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
