@@ -276,3 +276,13 @@ tbody, td, tfoot, th, thead, tr {
 #logOutBtn{
   cursor: pointer;
 }
+
+#addCarForm{
+  position: absolute;
+    background-color: #dfdbdb;
+    padding: 16px;
+    max-width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    text-align: center
+}

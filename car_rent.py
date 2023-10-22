@@ -25,6 +25,17 @@ class Car:
             All_cars = cars["cars"]
 
         return All_cars
+# return last id for user
+def get_last_id():
+    with open("./static/json/register.json") as file:
+        allUser =json.load(file)
+        users = allUser["names"]
+        if users==[]:
+            last_id = 0
+        else:
+            last_id = users[-1]["id"]
+
+    return str(last_id)
 
 # function for returning the html pages
 def get_html(page_name):
@@ -44,7 +55,7 @@ def register():
     gethtml = get_html("index")
     return gethtml
 
-id =1
+# id =1
 # add data from register form to json file
 @app.route("/register",methods = ["POST"])
 def add_user():
@@ -52,15 +63,17 @@ def add_user():
     email = flask.request.form.get("email")
     password = flask.request.form.get("password")
     with open("./static/json/register.json") as json_file:
-        global id
+        # global id
+        last_id = get_last_id()
+        id = int(last_id) + 1
         file_name="./static/json/register.json"
         data = json.load(json_file)
         temp =data["names"]
         y={"id":id,"name":name,"email":email,"paswsword":password}
         temp.append(y)
-        id= id + 1
+        # id= id + 1
         write_json(data,file_name)
-    return "added"
+    return redirect("/login")
 
 
 
