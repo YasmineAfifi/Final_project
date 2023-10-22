@@ -1,4 +1,5 @@
 const welcomeUser = document.getElementById("welcomeUser");
+const logOutBtn = document.getElementById("logOutBtn");
 welcomeUser.innerText = "welcome " + localStorage.getItem("userName");
 
 // function Func() {
@@ -75,7 +76,7 @@ welcomeUser.innerText = "welcome " + localStorage.getItem("userName");
 
 
 
-function Func() {
+function getAllCars() {
         fetch("/AllCars")
             .then((res) => {
                 return res.json();
@@ -145,7 +146,20 @@ function Func() {
             })
     }
 
-Func()
+
+
+
+
+
+// logout function to clear data from local storage
+function logOut(){
+    localStorage.clear();
+    window.location.href = "http://127.0.0.1:5000/login"
+}
+// call the function that get all cars from route in python 
+getAllCars()
+
+logOutBtn.addEventListener("click",logOut)
 
 
 

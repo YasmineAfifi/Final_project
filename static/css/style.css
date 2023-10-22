@@ -85,7 +85,7 @@ body {
 
 /* register title for register form and login title for login form */
 #registerTitle,
-#loginTitle {
+#loginTitle,#addCarsTitle {
   font-size: 28px;
   font-weight: 600;
   letter-spacing: -1px;
@@ -271,4 +271,8 @@ footer{
 /* remove border from table */
 tbody, td, tfoot, th, thead, tr {
  border: 0px;
+}
+
+#logOutBtn{
+  cursor: pointer;
 }

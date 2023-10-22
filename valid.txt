@@ -101,22 +101,10 @@ python
        return f"New ID: {new_id}"
 
 
-
-
-
-
-
-
-
-details page
 form validation 
-reservation 
 add car 
-log out 
 restriction
-
-
-
+lastid_problem
 responsive
 
 
