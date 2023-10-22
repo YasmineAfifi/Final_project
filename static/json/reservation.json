@@ -3,15 +3,15 @@
         {
             "user_Id": "1",
             "username": "mohamed",
-            "brand": "bbbb",
+            "brand": "Fiat",
             "color": "blue",
             "price": "120"
         },
         {
             "user_Id": "2",
             "username": "mona",
-            "brand": "vvv",
-            "color": "122",
+            "brand": "Logan",
+            "color": "purple",
             "price": "111"
         },
         {
@@ -31,7 +31,7 @@
         {
             "user_Id": "1",
             "username": "mohamed",
-            "brand": "Reno",
+            "brand": "Rino",
             "color": "black",
             "price": "500"
         }

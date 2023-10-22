@@ -259,6 +259,16 @@ footer{
   height: 100vh;
 
 }
+/* reservation table */
+.reserveTable td ,.reserveTable th {
 
-
-
+  height: 80px;
+  width: 160px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 42px 26px 37px 0px;
+}
+/* remove border from table */
+tbody, td, tfoot, th, thead, tr {
+ border: 0px;
+}
