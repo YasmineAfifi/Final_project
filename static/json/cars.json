@@ -1,36 +1,36 @@
 {
     "cars": [
         {
-            "id": 0,
+            "id": 1,
             "brand": "Mercedes Grand Sedan",
             "color": "blue",
             "price": "1507j",
             "image": "car.jpg"
         },
         {
-            "id": 1,
+            "id": 2,
             "brand": "Toyota",
             "color": "red",
             "price": "120",
             "image": "2.jpg"
         },
         {
-            "id": 2,
+            "id": 3,
             "brand": "Chevrolet",
             "color": "blue",
             "price": "300",
             "image": "4.jpg"
         },
         {
-            "id": 3,
+            "id": 4,
             "brand": "BMW",
             "color": "yellow",
             "price": "1000",
             "image": "3.jpg"
         },
         {
-            "id": 4,
-            "brand": "Reno",
+            "id": 5,
+            "brand": "Rino",
             "color": "black",
             "price": "500",
             "image": "1.jpg"

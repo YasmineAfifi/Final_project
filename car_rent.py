@@ -11,7 +11,7 @@ class Car:
     id_obj = itertools.count()
 
     def __init__(self,brand,color,price):
-        self.id = next(Car.id_obj)
+        # self.id = next(Car.id_obj)
         self.brand = brand
         self.color = color
         self.price = price
@@ -26,14 +26,21 @@ class Car:
 
         return All_cars
 # return last id for user
-def get_last_id():
-    with open("./static/json/register.json") as file:
-        allUser =json.load(file)
-        users = allUser["names"]
-        if users==[]:
-            last_id = 0
-        else:
-            last_id = users[-1]["id"]
+def get_last_id(json_file):
+    with open("./static/json/"+json_file) as file:
+        alldata =json.load(file)
+        if json_file == "register.json":
+            data = alldata["names"]
+            if data==[]:
+                last_id = 0
+            else:
+                last_id = data[-1]["id"]
+        elif json_file == "cars.json":
+            data = alldata["cars"]
+            if data==[]:
+                last_id = 0
+            else:
+                last_id = data[-1]["id"]
 
     return str(last_id)
 
@@ -55,7 +62,6 @@ def register():
     gethtml = get_html("index")
     return gethtml
 
-# id =1
 # add data from register form to json file
 @app.route("/register",methods = ["POST"])
 def add_user():
@@ -63,15 +69,13 @@ def add_user():
     email = flask.request.form.get("email")
     password = flask.request.form.get("password")
     with open("./static/json/register.json") as json_file:
-        # global id
-        last_id = get_last_id()
+        last_id = get_last_id("register.json")
         id = int(last_id) + 1
         file_name="./static/json/register.json"
         data = json.load(json_file)
         temp =data["names"]
         y={"id":id,"name":name,"email":email,"paswsword":password}
         temp.append(y)
-        # id= id + 1
         write_json(data,file_name)
     return redirect("/login")
 
@@ -129,7 +133,9 @@ def Add_cars():
     with open("./static/json/cars.json") as json_file:
         data_file = json.load(json_file)
         All_cars_data = data_file["cars"]
-        car_data = {"id":car_object.id,"brand":car_object.brand,"color":car_object.color,"price":car_object.price,"image":img_name}
+        last_car_id = get_last_id("cars.json")
+        id = int(last_car_id) + 1
+        car_data = {"id":id,"brand":car_object.brand,"color":car_object.color,"price":car_object.price,"image":img_name}
         All_cars_data.append(car_data)
         if img_name !="":
             image_uploaded.save(upload_path)
