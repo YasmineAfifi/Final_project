@@ -86,7 +86,7 @@ def check_user_login():
     else:
         loginForm = get_html("login")
         return loginForm
-    
+# show the home page and pass the name and id of the user 
 @app.route("/home")
 def home_page():
     name = session.get("name")
@@ -157,7 +157,7 @@ def reserve_car():
        write_json(reserve_file,file_name)
        return "reserved"
 
-
+# show the car details html and pass car data in it
 @app.route("/carDetails/<int:car_id>")
 def getDetails(car_id):
     car_Details_content = get_html("carDetails")
@@ -195,6 +195,33 @@ def search():
              return getSearch.replace("$$search_Container$$","<div class='centerPage'><div class = 'containerNoResult'><p class='NoResultText'>No Results Found</p></div></div>")
         else:
              return getSearch.replace("$$search_Container$$",Search_result)
+
+# return the reservation html page and pass user reservation data
+@app.route("/reservation")
+def reservation_page():
+    user_id = session.get("id")
+    user_reservation = []
+    with open("./static/json/reservation.json") as file_json:
+        all_reservations = json.load(file_json)
+        all_reservations_data = all_reservations["reservedCars"]
+        for reservation in all_reservations_data:
+            if reservation["user_Id"] == str(user_id):
+                user_reservation.append(reservation)
+        if user_reservation != []:
+         return render_template("reservation.html",user_reservation = user_reservation)
+        else:
+            return "no reservation"
+
+
+
+
+
+
+
+# return the reservation html page
+@app.route("/addCar")
+def add_car_page():
+    return render_template("addCars.html")
 
 
 

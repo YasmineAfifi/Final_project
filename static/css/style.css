@@ -30,7 +30,7 @@ body {
 
 /* inputs in the register form  and login form*/
 .registerInput,
-.loginInput {
+.loginInput,.addInput {
   background-color: #fff;
   padding: 16px;
   font-size: 14px;
@@ -62,7 +62,7 @@ body {
 
 /*register button and login button  for register and login form   */
 #registertBtn,
-#loginBtn {
+#loginBtn,#addCarBtn {
 
   padding: 12px 20px;
   background-color: #DFC51B;
