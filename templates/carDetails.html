@@ -61,10 +61,12 @@
  
   <!-- Start Image and form -->
   <div class="detailsBC">
+    {% if car_details%}
 <div class="container">
-    <div class="row row-cols-1 CarDetailsContainer">
   
 
+    <div class="row row-cols-1 CarDetailsContainer">
+  
 
       {% for car in car_details %}
       
@@ -100,6 +102,9 @@
       {% endfor %}
     </div>
   </div>
+  {%else%}
+  {{no_id|safe}}
+  {% endif %}
   <!-- Start Image and form -->
 
   

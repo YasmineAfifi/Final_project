@@ -185,6 +185,7 @@ def reserve_car():
 def getDetails(car_id):
     car_Details_content = get_html("carDetails")
     car_details = []
+    no_id =""
     with open("./static/json/cars.json") as file:
         allData = json.load(file)
         data_array = allData["cars"]
@@ -193,7 +194,8 @@ def getDetails(car_id):
                 car_details.append(car)
                 return render_template("carDetails.html",car_details=car_details)
         else:
-            return "no id"
+             return render_template("carDetails.html",no_id = "<div class='centerPage'><div class = 'containerNoResult'><p class='NoResultText'>No Data For This Id</p></div></div>")
+       
 
 
 
@@ -223,6 +225,7 @@ def search():
 def reservation_page():
     user_id = session.get("id")
     user_reservation = []
+    no_data =""
     with open("./static/json/reservation.json") as file_json:
         all_reservations = json.load(file_json)
         all_reservations_data = all_reservations["reservedCars"]
@@ -232,7 +235,7 @@ def reservation_page():
         if user_reservation != []:
          return render_template("reservation.html",user_reservation = user_reservation)
         else:
-            return "no reservation"
+         return render_template("reservation.html",no_data="<div class='centerPage'><div class = 'containerNoResult'><p class='NoResultText'>No reservations Found</p></div></div>")
 
 
 
@@ -245,7 +248,7 @@ def reservation_page():
 def add_car_page():
     return render_template("addCars.html")
 
-
+# log out and clear session 
 @app.route("/logout")
 def log_out():
     session.clear()

@@ -71,7 +71,7 @@
       <!-- End image and Nav -->
 
            <!-- Start User Data for Reservation -->
-
+  {% if user_reservation %}
     <table class="table table-striped reserveTable">
         <thead>
           <tr>
@@ -91,9 +91,10 @@
 
         </tbody>
       </table>
-
+{%else%}
+{{no_data|safe}}
+{% endif %}
            <!-- End User Data for Reservation -->
-
 
   <!-- Start Footer -->
   <footer>
