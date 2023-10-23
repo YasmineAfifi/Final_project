@@ -215,7 +215,7 @@ body {
 
 }
 /* step image */
-.stepsImage,.reserveImage {
+.stepsImage{
   background-image: url('/static/images/LM5OT587.jpg');
   height: 450px;
   background-repeat: no-repeat;
@@ -296,7 +296,7 @@ tbody, td, tfoot, th, thead, tr {
 /* reservation background */
 .reserveImage{
   background-image: url('/static/images/reserve.jpg');
-  height: 500px;
+  height: 350px;
   background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
@@ -324,11 +324,11 @@ tbody, td, tfoot, th, thead, tr {
   justify-content: center;
   display: flex;
   align-items: center;
-  height: 500px;
+  height: 350px;
 
 }
 /* reservation title in reservation page */
-.ReserveTitle{
+.ReserveTitle,.detailsTitle{
   color: white;
   position: absolute;
   font-size: 50px;
@@ -379,10 +379,30 @@ tbody, td, tfoot, th, thead, tr {
     width: 50%;
 
 }
+/* text below the sign up form */
 #SignUpNote{
   text-align: center;
 }
   
+
+
+.detailsImage{
+  background-image: url('/static/images/details.jpg');
+  height: 350px;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(50%); 
+}
+
+
+
+
+
+
+
+
 @media screen and (max-width: 700px){
 /* login image form  */
   #loginImg{
