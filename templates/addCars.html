@@ -15,10 +15,18 @@
 
     <form action="/cars" method="post" enctype="multipart/form-data" id="addCarForm">
         <p id="addCarsTitle">AddCar</p>
-        <input type="text" name = "brand" class="addInput" placeholder="Brand">
-        <input type="text" name = "color" class="addInput" placeholder="Color">
-        <input type="text" name = "price" class="addInput" placeholder="Price">
-        <input type="file" name="img" class="addInput">
+        <input type="text" name = "brand" class="addInput" placeholder="Brand" id="brand">
+        <span id="brandError" class="Error"></span>
+
+        <input type="text" name = "color" class="addInput" placeholder="Color"  id="color">
+        <span id="colorError" class="Error"></span>
+
+        <input type="text" name = "price" class="addInput" placeholder="Price"  id="price">
+        <span id="priceError" class="Error"></span>
+
+        <input type="file" name="img" class="addInput"  id="image">
+        <span id="imageError" class="Error"></span>
+
         <button type="submit" id="addCarBtn">Add</button>
     </form> 
 
@@ -33,8 +41,8 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
-  <!-- <script src="/static/js/script.js"></script>
-  <script src="/static/js/home.js"></script> -->
+  <script src="/static/js/script.js"></script>
+  <!-- <script src="/static/js/home.js"></script> -->
 </body>
 
 

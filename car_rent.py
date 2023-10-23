@@ -140,11 +140,10 @@ def Add_cars():
         if img_name !="":
             image_uploaded.save(upload_path)
             write_json(data_file,file_name)
-        else:
-            return "All elements are required"
+        # else:
+        #     return "All elements are required"
 
-    return "Added successfully"
-
+    return redirect("/home")
 
 # see all cars is available in json file
 @app.route("/AllCars")
