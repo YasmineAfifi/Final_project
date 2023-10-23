@@ -53,7 +53,7 @@
                 <a class="nav-link" aria-current="page" href="/addCar">Add Car</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" id="logOutBtn">LogOut</a>
+                <a class="nav-link" aria-current="page" href="/logout" id="logOutBtn">LogOut</a>
               </li>
             </ul>
             <form class="d-flex" role="search" action="/search" method="get">
@@ -176,9 +176,12 @@
 
   <!-- recieve data from flask and store it in local storage-->
   <script>
-
+  //  check if the user login or not to set his data and got to home page
+    if("{{name}}"!="" && "{{id}}"!="")
+  {
     localStorage.setItem("userId", "{{id}}");
     localStorage.setItem("userName", "{{name}}");
+  }
 
   </script>
 

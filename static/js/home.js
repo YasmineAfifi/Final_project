@@ -1,3 +1,8 @@
+// user can't open this page he must login first  
+if(localStorage.getItem("userName")==null && localStorage.getItem("userId")==null ){
+    window.location.href = "http://127.0.0.1:5000/login"
+}
+
 // function get the data form route AllCars
 function getAllCars() {
         fetch("/AllCars")

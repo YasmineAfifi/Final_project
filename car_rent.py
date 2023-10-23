@@ -106,11 +106,15 @@ def check_user_login():
 # show the home page and pass the name and id of the user 
 @app.route("/home")
 def home_page():
-    name = session.get("name")
-    id   = session.get("id")
+    if(session.get("name")!= None and session.get("id") != None):
+        name = session.get("name")
+        id   = session.get("id")
+        return render_template("home.html",id=id,name=name)
+    else:
+        return render_template("home.html")
    
 
-    return render_template("home.html",id=id,name=name)
+    
 # function for returning the add cars form html
 
 @app.route("/addCars")
@@ -240,6 +244,12 @@ def reservation_page():
 @app.route("/addCar")
 def add_car_page():
     return render_template("addCars.html")
+
+
+@app.route("/logout")
+def log_out():
+    session.clear()
+    return redirect("/login")
 
 
 

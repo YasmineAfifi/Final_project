@@ -1,3 +1,8 @@
+// user can't open this page he must login first  
+if(localStorage.getItem("userName")==null && localStorage.getItem("userId")==null ){
+    window.location.href = "http://127.0.0.1:5000/login"
+}
+
 // validation for add car form when submit it 
 
 const addCarForm = document.getElementById("addCarForm");
