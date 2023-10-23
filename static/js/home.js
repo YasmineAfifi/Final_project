@@ -1,8 +1,3 @@
-// user can't open this page he must login first  
-if(localStorage.getItem("userName")==null && localStorage.getItem("userId")==null ){
-    window.location.href = "http://127.0.0.1:5000/login"
-}
-
 // function get the data form route AllCars
 function getAllCars() {
         fetch("/AllCars")
@@ -24,7 +19,7 @@ function getAllCars() {
                     // create image
                     const imgContainerDiv = document.createElement("div");
                     const image = document.createElement("img");
-                    imgContainerDiv.className = "imgContainerCard"
+                    imgContainerDiv.className = "imgContainerCard";
                     image.className="card-img-top cardImg";
                     image.src = `../static/images/${element.image}`;
                     imgContainerDiv.appendChild(image);
@@ -36,7 +31,7 @@ function getAllCars() {
                     cardbody.appendChild(imgContainerDiv);
                     // create text for car brand
                     const titleAnchorDetails = document.createElement("a");
-                    titleAnchorDetails.className="titleCardDetails"
+                    titleAnchorDetails.className="titleCardDetails";
                     titleAnchorDetails.href =`/carDetails/${element.id}`;
                     const carBrand = document.createElement("h5");
                     titleAnchorDetails.appendChild(carBrand);
@@ -55,9 +50,9 @@ function getAllCars() {
                     cardbody.appendChild(reserveBtn);
                     cardbody.appendChild(DetailsBtn);
                     reserveBtn.className="btn btn-primary reserveBtn";
-                    reserveBtn.innerHTML = "Reserve"
+                    reserveBtn.innerHTML = "Reserve";
                     DetailsBtn.className="btn btn-secondary detailsBtn";
-                    DetailsBtn.innerHTML = "Details"
+                    DetailsBtn.innerHTML = "Details";
                   
                     btnCardContainer.appendChild(reserveBtn);
                     btnCardContainer.appendChild(DetailsBtn);
@@ -72,7 +67,7 @@ function getAllCars() {
 
 
 // call the function that get all cars from route in python
-getAllCars()
+getAllCars();
 
 
 

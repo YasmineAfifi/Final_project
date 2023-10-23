@@ -69,10 +69,15 @@
  
 
     <div class="CarDetailsContainer">
+  
+
 
       {% for car in car_details %}
       
-    
+       <div>
+          <img src="../static/images/{{car.image}}" alt="" width="500px"> 
+       </div>
+       
          <div>
           
           <form action="/reserve" method="post">
@@ -83,7 +88,7 @@
             <input type="hidden" name = "color" value={{car.color}}>
         
 
-            <p>Car Brand : {{car.brand}}<p>
+            <p><span>Car Brand :</span> {{car.brand}}</p>
               <hr>
             <p>Price : {{car.price}} LE/Day</p>
             <p>Color : {{car.color}}</p>
@@ -94,10 +99,11 @@
 
         </div> 
 
-        <div>
-           <img src="../static/images/{{car.image}}" alt="" width="500px"> 
-        </div>
+   
+    
+     
 
+       
     </div>
       {% endfor %}
 
