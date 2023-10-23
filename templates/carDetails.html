@@ -6,28 +6,20 @@
     <title>Car Details</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="shortcut icon" href="#" />
 
   <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-         <!-- Start image and Nav -->
   <div class="position-relative">
-    <div class="imageTitleContainer">
-    <div class="detailsImage">
-      
-     
-    </div>
-    <div class="detailsTitle">
-      Details
-    </div>
 
-  </div>
+         <!-- Start Nav -->
 
-    <div class="navContainer">
+    <div class="navContainer position-relative">
 
 
 
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary navBarDark" >
         <div class="container-fluid">
           <span class="navbar-brand">Rent-Car</span>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -48,12 +40,12 @@
                 <a class="nav-link" aria-current="page" href="/addCar">Add Car</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" id="logOutBtn">LogOut</a>
+                <a class="nav-link" aria-current="page"  href="/logout" id="logOutBtn">LogOut</a>
               </li>
             </ul>
             <form class="d-flex" role="search" action="/search" method="get">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-              <button class="btn btn-outline-primary" type="submit">Search</button>
+              <button class="btn btn-primary" type="submit">Search</button>
             </form>
             <li class="welcomeLink">
               <div id="welcomeUser"></div>
@@ -64,21 +56,23 @@
       </nav>
     </div>
 
-
+<!-- End Nav -->
   </div>
  
-
-    <div class="CarDetailsContainer">
+  <!-- Start Image and form -->
+  <div class="detailsBC">
+<div class="container">
+    <div class="row row-cols-1 CarDetailsContainer">
   
 
 
       {% for car in car_details %}
       
-       <div>
-          <img src="../static/images/{{car.image}}" alt="" width="500px"> 
+       <div class="col">
+          <img src="../static/images/{{car.image}}" alt=""  class="detailImage"> 
        </div>
        
-         <div>
+         <div class="col DetailsForm">
           
           <form action="/reserve" method="post">
             <input type="hidden" name ="userId" id="userId">
@@ -88,26 +82,27 @@
             <input type="hidden" name = "color" value={{car.color}}>
         
 
-            <p><span>Car Brand :</span> {{car.brand}}</p>
-              <hr>
-            <p>Price : {{car.price}} LE/Day</p>
-            <p>Color : {{car.color}}</p>
-
-            <button type="submit" id="Reserve" class="btn btn-primary w-100">Reserve</button>
-
+            <p class="brandName">{{car.brand}}</p>
+              <hr >
+            <div class="ps-2">
+            <p class="fw-light fs-5">{{car.price}} LE/Day</p>
+            <p class="fw-light fs-5">{{car.color}}</p>
+          </div>
+          <div class="text-center">
+            <button type="submit" id="Reserve" class="btn btn-primary w-25">Reserve</button>
+          </div>
           </form>
 
         </div> 
 
-   
-    
-     
 
-       
     </div>
       {% endfor %}
+    </div>
+  </div>
+  <!-- Start Image and form -->
 
-
+  
      <!-- Start Footer -->
      <footer>
       <div>

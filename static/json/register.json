@@ -2,45 +2,37 @@
     "names": [
         {
             "id": 1,
-            "name": "mohamed",
+            "name": "Mohamed",
             "email": "test@gmail.com",
             "password": "123456"
-        },
-        {
+        },{
             "id": 2,
             "name": "mona",
             "email": "mona@gmail.com",
-            "paswsword": "123456"
+            "password": "123456"
         },
         {
             "id": 3,
             "name": "Yasmine",
             "email": "Yasmine@gmail.com",
-            "paswsword": "123456"
+            "password": "123456"
         },
         {
             "id": 4,
             "name": "sara",
             "email": "sara@gmail.com",
-            "paswsword": "123456"
+            "password": "123456"
         },
         {
             "id": 6,
             "name": "heba",
             "email": "heba@gmail.com",
-            "paswsword": "123456"
-        },
-        {
-            "id": 7,
-            "name": "",
-            "email": "",
-            "paswsword": ""
-        },
-        {
-            "id": 8,
-            "name": "sara",
-            "email": "test@gmail.com",
-            "paswsword": "123456"
+            "password": "123456"
+        },{
+            "id": 9,
+            "name": "amr",
+            "email": "amr@gmail.com",
+            "password": "123456"
         }
     ]
 }

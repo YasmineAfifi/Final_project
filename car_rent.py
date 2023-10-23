@@ -98,8 +98,9 @@ def check_user_login():
                 session["id"]=id
                 session["name"]=name
                 return redirect(url_for('home_page'))
-            else:
-                return redirect(url_for('check_user_login'))
+        else:
+            return redirect("/login")
+
     else:
         loginForm = get_html("login")
         return loginForm
@@ -200,23 +201,22 @@ def getDetails(car_id):
 @app.route("/search")
 def search():
     search_value = flask.request.args.get("search").lower()
-    # Search_result = []
     Search_result =""
     with open("./static/json/cars.json") as file:
         cars_data = json.load(file)
         cars_data_array = cars_data["cars"]
     
         for cars in cars_data_array:
-
             if cars["brand"].lower().find(search_value)!=-1 or cars["color"].lower().find(search_value)!=-1:
-                # Search_result.append(cars)
-                Search_result+="<div class='col mt-3 mb-3'><div class='card h-100'><div class='card-body'><div class='imgContainerCard'><img class='card-img-top cardImg' src='../static/images/"+cars['image']+"'></div><a class='titleCardDetails'href='/carDetails/"+str(cars['id'])+"'><h5 class='card-title py-3'>"+cars["brand"]+"</h5></a><div class='btnCardContainer pb-3'><a class='btn btn-primary reserveBtn' href='/carDetails/"+str(cars["id"])+"'>Reserve</a><a class='btn btn-secondary detailsBtn'href='/carDetails/"+str(cars["id"])+"' >Details</a></div></div></div></div>"
-        getSearch = get_html("searchResult")
+                 print("hello")
+                 Search_result+="<div class='col mt-3 mb-3'><div class='card h-100'><div class='card-body'><div class='imgContainerCard'><img class='card-img-top cardImg' src='../static/images/"+cars['image']+"'></div><a class='titleCardDetails'href='/carDetails/"+str(cars['id'])+"'><h5 class='card-title py-3'>"+cars["brand"]+"</h5></a><div class='btnCardContainer pb-3'><a class='btn btn-primary detailsBtn'href='/carDetails/"+str(cars["id"])+"'>Details</a></div></div></div></div>"
+        
+    getSearch = get_html("searchResult")
 
-        if Search_result =="":
-             return getSearch.replace("$$search_Container$$","<div class='centerPage'><div class = 'containerNoResult'><p class='NoResultText'>No Results Found</p></div></div>")
-        else:
-             return getSearch.replace("$$search_Container$$",Search_result)
+    if Search_result =="":
+         return getSearch.replace("$$search_Container$$","<div class='centerPage'><div class = 'containerNoResult'><p class='NoResultText'>No Results Found</p></div></div>")
+    else:
+         return getSearch.replace("$$search_Container$$",Search_result)
 
 # return the reservation html page and pass user reservation data
 @app.route("/reservation")

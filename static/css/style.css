@@ -1,7 +1,7 @@
 body {
   margin: 0px;
   padding: 0px;
-  min-height: 120vh;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -16,6 +16,26 @@ body {
   justify-content: center;
   align-items: center;
 }
+/* error for Add cars form */
+.ErrorAdd{
+  color: #ff7474;
+}
+
+ #addCarBtn {
+
+    padding: 12px 20px;
+    background-color: #0B5ED7;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 8px;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+
+  }
 
 /* register form  */
 #regiserForm {
@@ -30,7 +50,8 @@ body {
 
 /* inputs in the register form  and login form*/
 .registerInput,
-.loginInput,.addInput {
+.loginInput,
+.addInput {
   background-color: #fff;
   padding: 16px;
   font-size: 14px;
@@ -62,7 +83,7 @@ body {
 
 /*register button and login button  for register and login form   */
 #registertBtn,
-#loginBtn,#addCarBtn {
+#loginBtn {
 
   padding: 12px 20px;
   background-color: #DFC51B;
@@ -85,7 +106,8 @@ body {
 
 /* register title for register form and login title for login form */
 #registerTitle,
-#loginTitle,#addCarsTitle {
+#loginTitle,
+#addCarsTitle {
   font-size: 28px;
   font-weight: 600;
   letter-spacing: -1px;
@@ -93,8 +115,9 @@ body {
   font-family: Menlo, Monaco, Consolas;
   color: #5e5e5e;
 }
+
 /* add car tiltle */
-#addCarsTitle{
+#addCarsTitle {
   color: white;
   font-size: 35px;
 }
@@ -106,28 +129,31 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120vh;
+  height: 100vh;
   background: #F1F1F1;
 
 }
+
 /* form and login container in login form */
-.formImageContainer{
+.formImageContainer {
   display: flex;
-    justify-content: space-between;
-    border: 1px solid #5958582e;
-    background: #f9f9f9;
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-    height: 500px;
-    max-width: 800px;
+  justify-content: space-between;
+  border: 1px solid #5958582e;
+  background: #f9f9f9;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  height: 500px;
+  max-width: 800px;
 }
+
 /* conatiner for login form */
-#loginContainer{
+#loginContainer {
 
   margin-right: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 /* image for cards */
 .imageCard {
   object-fit: cover;
@@ -145,14 +171,13 @@ body {
 
 
 /* buttons found in the cards */
-.detailsBtn,
-.reserveBtn {
+.detailsBtn {
 
-  width: 100%;
+  width: 60%;
 }
 
 /* welcome for user in navbar */
-.welcomeLink{
+.welcomeLink {
   list-style: none;
   margin-left: 20px;
 }
@@ -214,8 +239,9 @@ body {
   width: 100%;
 
 }
+
 /* step image */
-.stepsImage{
+.stepsImage {
   background-image: url('/static/images/LM5OT587.jpg');
   height: 450px;
   background-repeat: no-repeat;
@@ -228,37 +254,41 @@ body {
 
 /* center the content of the car details */
 
-.CarDetailsContainer{
+.CarDetailsContainer {
   display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
 }
+
 /* footer  */
-footer{
+footer {
   background: #00000021;
-    text-align: center;
-    height: 60px;
-    line-height: 60px;
-    position: absolute;
-    top: 100%;
-    width: 100%;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
 }
+
 /* container of no result */
-.containerNoResult{
+.containerNoResult {
   width: 100%;
   background: lightgray;
   display: flex;
   height: 60px;
   justify-content: center;
 }
+
 /* text of no result */
-.NoResultText{
+.NoResultText {
   line-height: 60px;
 }
+
 /* center page of no text found */
 
-.centerPage{
+.centerPage {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -266,8 +296,10 @@ footer{
   height: 100vh;
 
 }
+
 /* reservation table */
-.reserveTable td ,.reserveTable th {
+.reserveTable td,
+.reserveTable th {
 
   height: 80px;
   width: 160px;
@@ -275,51 +307,75 @@ footer{
   vertical-align: middle;
   padding: 42px 26px 37px 0px;
 }
+
 /* remove border from table */
-tbody, td, tfoot, th, thead, tr {
- border: 0px;
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border: 0px;
 }
+
 /* logout button in navbar */
-#logOutBtn{
+#logOutBtn {
   cursor: pointer;
 }
-/* add car form  */
-/* #addCarForm{
-    /* background-color: #dfdbdb; */
-    /* padding: 16px; */
-    /* border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
-    text-align: center; */
-    /* max-width: 540px; */
-/* }*/ 
+
+/* details image in car details page */
+.detailImage {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+
+}
+
+/* add background for add form */
+.addFormBorder {
+  background: #6e6e6e7d;
+  padding: 30px;
+  border-radius: 10px;
+
+}
 
 /* reservation background */
-.reserveImage{
+.reserveImage {
   background-image: url('/static/images/reserve.jpg');
   height: 350px;
   background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
   background-position: 50% 75%;
-  filter: brightness(50%); 
+  filter: brightness(50%);
 }
+
 /* links in the nav */
-.nav-link,.navbar-brand,#welcomeUser{
+.nav-link,
+.navbar-brand,
+#welcomeUser {
   color: white;
 }
-.nav-link:hover,.navbar-brand:hover,#welcomeUser:hover{
+
+/* links hover in the nav */
+.nav-link:hover,
+.navbar-brand:hover,
+#welcomeUser:hover {
   color: white;
 }
+
 /* input form error */
-.Error{
+.Error {
   color: #c70707;
-    display: block;
-    text-align: left;
-    padding-left: 8px;
-    font-size: 14px;
+  display: block;
+  text-align: left;
+  padding-left: 8px;
+  font-size: 14px;
 }
+
 /* container of image and title of reservation and add car  page */
-.imageTitleContainer{
+.imageTitleContainer {
   position: relative;
   justify-content: center;
   display: flex;
@@ -327,18 +383,24 @@ tbody, td, tfoot, th, thead, tr {
   height: 350px;
 
 }
+
 /* reservation title in reservation page */
-.ReserveTitle,.detailsTitle{
+.ReserveTitle {
   color: white;
   position: absolute;
   font-size: 50px;
 
 }
 
+/* navbar darker */
+.navBarDark {
+  background-color: #0000004d !important;
+}
+
 /* background Image for add car image */
-.addCarImage{
+.addCarImage {
   background-image: url(/static/images/add1.jpg);
-  height: 120vh;
+  height: 100vh;
   background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
@@ -346,7 +408,8 @@ tbody, td, tfoot, th, thead, tr {
   filter: brightness(50%);
 }
 
-#addFormContainer{
+/* container in the add car form  */
+#addFormContainer {
   position: absolute;
   top: 0%;
   justify-content: center;
@@ -358,82 +421,83 @@ tbody, td, tfoot, th, thead, tr {
 
 }
 
-
-
-  .addInput {
-    background-color: #fff;
-    padding: 16px;
-    font-size: 14px;
-    line-height: 20px;
-    width: 300px;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    outline: none;
-    border: 1px solid #e5e7eb;
-    margin: 8px 0;
-  
-  }
-/* login image form  */
-#loginImg{
-  object-fit: contain;
-    width: 50%;
+/* inputs in add car form  */
+.addInput {
+  background-color: #fff;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  outline: none;
+  border: 1px solid #e5e7eb;
+  margin: 8px 0;
 
 }
+
+/* login image form  */
+#loginImg {
+  object-fit: contain;
+  width: 50%;
+
+}
+
 /* text below the sign up form */
-#SignUpNote{
+#SignUpNote {
   text-align: center;
 }
-  
 
 
-.detailsImage{
-  background-image: url('/static/images/details.jpg');
-  height: 350px;
-  background-repeat: no-repeat;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(50%); 
+/* brand name in details page */
+.brandName {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+/* details page background */
+.detailsBC {
+  background: #f1f1f1;
 }
 
 
 
 
 
+@media screen and (max-width: 700px) {
 
-
-
-@media screen and (max-width: 700px){
-/* login image form  */
-  #loginImg{
-   width: 40%;
+  /* login image form  */
+  #loginImg {
+    width: 40%;
   }
+
   /* inputs in the login form */
-.loginInput{
- width: 100%;
-}
-
- }
-  @media screen and (max-width: 640px){
-    /* add input form  */
-    .col .addInput{
-      width:100%
-    }
+  .loginInput {
+    width: 100%;
   }
 
+}
 
-  
-  @media screen and (max-width: 550px){
-/* image in the login form  */
-   #loginImg{
+@media screen and (max-width: 640px) {
+
+  /* add input form  */
+  .col .addInput {
+    width: 100%
+  }
+}
+
+
+
+@media screen and (max-width: 550px) {
+
+  /* image in the login form  */
+  #loginImg {
     width: 28%;
-   }
-   /* inputs in the login form */
-.loginInput{
-  width: 100%;
-}
+  }
+
+  /* inputs in the login form */
+  .loginInput {
+    width: 100%;
+  }
 
 }
-
-
-  

@@ -40,21 +40,17 @@ function getAllCars() {
                     const btnCardContainer = document.createElement("div");
                     // create the card buttons
                    btnCardContainer.className="btnCardContainer pb-3";
-                    const reserveBtn = document.createElement("button");
                    
                     const DetailsBtn = document.createElement("button");
                     DetailsBtn.onclick = function redirctToUrl() {
                         window.location.href = `/carDetails/${element.id}`;
                     };
                     cardbody.appendChild(titleAnchorDetails);
-                    cardbody.appendChild(reserveBtn);
                     cardbody.appendChild(DetailsBtn);
-                    reserveBtn.className="btn btn-primary reserveBtn";
-                    reserveBtn.innerHTML = "Reserve";
-                    DetailsBtn.className="btn btn-secondary detailsBtn";
+             
+                    DetailsBtn.className="btn btn-primary detailsBtn";
                     DetailsBtn.innerHTML = "Details";
                   
-                    btnCardContainer.appendChild(reserveBtn);
                     btnCardContainer.appendChild(DetailsBtn);
     
                     cardbody.appendChild(btnCardContainer);

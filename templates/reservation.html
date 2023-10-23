@@ -50,12 +50,12 @@
                 <a class="nav-link" aria-current="page" href="/addCar">Add Car</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" id="logOutBtn">LogOut</a>
+                <a class="nav-link" aria-current="page" id="logOutBtn"  href="/logout">LogOut</a>
               </li>
             </ul>
             <form class="d-flex" role="search" action="/search" method="get">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-              <button class="btn btn-outline-primary" type="submit">Search</button>
+              <button class="btn btn-primary" type="submit">Search</button>
             </form>
             <li class="welcomeLink">
               <div id="welcomeUser"></div>
@@ -68,11 +68,13 @@
 
 
   </div>
- 
+      <!-- End image and Nav -->
+
+           <!-- Start User Data for Reservation -->
+
     <table class="table table-striped reserveTable">
         <thead>
           <tr>
-            <!-- <th >User_Name</th> -->
             <th >Brand</th>
             <th >Color</th>
             <th >Price</th>
@@ -81,7 +83,6 @@
         <tbody>
             {% for reservation in user_reservation%}
           <tr>
-            <!-- <th>{{reservation.username}}</th> -->
             <td>{{reservation.brand}}</td>
             <td>{{reservation.color}}</td>
             <td>{{reservation.price}} LE/Day</td>
@@ -91,6 +92,7 @@
         </tbody>
       </table>
 
+           <!-- End User Data for Reservation -->
 
 
   <!-- Start Footer -->
