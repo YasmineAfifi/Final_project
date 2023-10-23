@@ -272,11 +272,11 @@ footer{
 tbody, td, tfoot, th, thead, tr {
  border: 0px;
 }
-
+/* logout button in navbar */
 #logOutBtn{
   cursor: pointer;
 }
-
+/* add car form  */
 #addCarForm{
   position: absolute;
     background-color: #dfdbdb;
@@ -285,4 +285,12 @@ tbody, td, tfoot, th, thead, tr {
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
     text-align: center
+}
+
+
+.Error{
+  color: #c70707;
+    display: block;
+    text-align: left;
+    padding-left: 8px;
 }
