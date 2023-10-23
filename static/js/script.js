@@ -1,14 +1,17 @@
 
 // set the value of local storage in the add Cars input form
-// const userIdInput = document.getElementById("userId");
-// const userNameInput =document.getElementById("userName");
-// if(localStorage.getItem("userId")!=null && localStorage.getItem("userName")!=null ){
-//     const userId =   localStorage.getItem("userId");
-//     const userName = localStorage.getItem("userName");
-//     // set hidden value with local storage value
-//     userNameInput.value = userName;
-//     userIdInput.value = userId;
-// }
+const userIdInput = document.getElementById("userId");
+const userNameInput =document.getElementById("userName");
+if(localStorage.getItem("userId")!=null && localStorage.getItem("userName")!=null ){
+    const userId =   localStorage.getItem("userId");
+    const userName = localStorage.getItem("userName");
+    // set hidden value with local storage value
+    if( userNameInput!=null && userIdInput!=null){
+        userNameInput.value = userName;
+        userIdInput.value = userId;
+    }
+    }
+   
 
 
 

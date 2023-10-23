@@ -173,7 +173,7 @@ def reserve_car():
        new_reservation = {"user_Id":user_Id,"username":username,"brand":brand,"color":color,"price":price}
        reserve_data.append(new_reservation)
        write_json(reserve_file,file_name)
-       return "reserved"
+       return redirect("/reservation")
 
 # show the car details html and pass car data in it
 @app.route("/carDetails/<int:car_id>")
