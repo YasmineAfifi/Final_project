@@ -23,13 +23,15 @@
   
         <div>
   
-          <input type="email" name = "email" placeholder="Enter E-mail" class="loginInput">
-  
+          <input type="text" name = "email" placeholder="Enter E-mail" class="loginInput" id ="email">
+          <span id="emailError" class="Error"></span>
+
         </div>
         <div>
   
-          <input type="password" name = "password" placeholder="Password" class="loginInput">
-  
+          <input type="password" name = "password" placeholder="Password" class="loginInput" id ="password">
+          <span id="passwordError" class="Error"></span>
+
         </div>
   
           <button type="submit" id="loginBtn">Login</button>
@@ -44,6 +46,7 @@
 
 
 
+<script src="/static/js/script.js"></script>
 
 
 </body>
