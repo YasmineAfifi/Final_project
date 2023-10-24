@@ -180,6 +180,7 @@ body {
 .welcomeLink {
   list-style: none;
   margin-left: 20px;
+  font-size: 15px;
 }
 
 
@@ -458,12 +459,19 @@ tr {
 /* details page background */
 .detailsBC {
   background: #f1f1f1;
+  min-height: 123vh;
 }
 
+/* body of details page */
+.carDetailsBody{
+  min-height: 123vh;
+}
+/* container of the car details page */
+.allDetailContainer{
 
+width: 70%;
 
-
-
+}
 @media screen and (max-width: 700px) {
 
   /* login image form  */
@@ -474,6 +482,12 @@ tr {
   /* inputs in the login form */
   .loginInput {
     width: 100%;
+  }
+  /* container of the car details page */
+.allDetailContainer{
+
+  width: 100%;
+  
   }
 
 }

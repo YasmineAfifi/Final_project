@@ -6,7 +6,7 @@ if(localStorage.getItem("userName")==null && localStorage.getItem("userId")==nul
 // assign the name of the user to navbar menu
 const welcomeUser = document.getElementById("welcomeUser");
 const logOutBtn = document.getElementById("logOutBtn");
-welcomeUser.innerText = "welcome " + localStorage.getItem("userName");
+welcomeUser.innerText = "Welcome " + localStorage.getItem("userName");
 
 
 // logout function to clear data from local storage

@@ -34,6 +34,13 @@
             "color": "black",
             "price": "500",
             "image": "1.jpg"
+        },
+        {
+            "id": 6,
+            "brand": "Kia",
+            "color": "silver",
+            "price": "1200",
+            "image": "car.jpg"
         }
     ]
 }
