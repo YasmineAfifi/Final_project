@@ -5,7 +5,7 @@
             "brand": "Mercedes Grand Sedan",
             "color": "blue",
             "price": "1507",
-            "image": "car.jpg"
+            "image": "det.jpg"
         },
         {
             "id": 2,
@@ -26,7 +26,7 @@
             "brand": "BMW",
             "color": "yellow",
             "price": "1000",
-            "image": "3.jpg"
+            "image": "add.jpg"
         },
         {
             "id": 5,

@@ -5,7 +5,8 @@
             "name": "Mohamed",
             "email": "test@gmail.com",
             "password": "123456"
-        },{
+        },
+        {
             "id": 2,
             "name": "mona",
             "email": "mona@gmail.com",
@@ -28,7 +29,8 @@
             "name": "heba",
             "email": "heba@gmail.com",
             "password": "123456"
-        },{
+        },
+        {
             "id": 9,
             "name": "amr",
             "email": "amr@gmail.com",

@@ -74,7 +74,7 @@ def add_user():
         file_name="./static/json/register.json"
         data = json.load(json_file)
         temp =data["names"]
-        y={"id":id,"name":name,"email":email,"paswsword":password}
+        y={"id":id,"name":name,"email":email,"password":password}
         temp.append(y)
         write_json(data,file_name)
     return redirect("/login")
