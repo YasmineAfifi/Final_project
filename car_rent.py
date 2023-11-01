@@ -1,21 +1,18 @@
 import flask
 import json
-import itertools
 from flask import  redirect, render_template,request, url_for,session
-from pprint import pprint
-import inspect
 app = flask.Flask(__name__)
-app.secret_key = "security Key"
-# class Cars 
-class Car:
-    id_obj = itertools.count()
+app.secret_key = "security Key" #secret key for session
 
-    def __init__(self,brand,color,price):
-        # self.id = next(Car.id_obj)
+# class of Car
+class Car:
+# constructor
+    def __init__(self,brand,color,price,image):
         self.brand = brand
         self.color = color
         self.price = price
-        
+        self.image = image
+
 # return all data for cars
     @staticmethod
     def Show_All_Cars():
@@ -23,8 +20,8 @@ class Car:
         with open("./static/json/cars.json") as json_file:
             cars = json.load(json_file)
             All_cars = cars["cars"]
-
         return All_cars
+    
 # return last id for user
 def get_last_id(json_file):
     with open("./static/json/"+json_file) as file:
@@ -34,7 +31,7 @@ def get_last_id(json_file):
             if data==[]:
                 last_id = 0
             else:
-                last_id = data[-1]["id"]
+                last_id = data[-1]["id"]  #get the last id as data[len-1]["id"]
         elif json_file == "cars.json":
             data = alldata["cars"]
             if data==[]:
@@ -104,6 +101,7 @@ def check_user_login():
     else:
         loginForm = get_html("login")
         return loginForm
+    
 # show the home page and pass the name and id of the user 
 @app.route("/home")
 def home_page():
@@ -134,20 +132,17 @@ def Add_cars():
     price = flask.request.form.get("price")
     img_name= image_uploaded.filename
     upload_path = "./static/images/"+img_name
-    car_object = Car(brand,color,price)
+    car_object = Car(brand,color,price,img_name)
     with open("./static/json/cars.json") as json_file:
         data_file = json.load(json_file)
         All_cars_data = data_file["cars"]
         last_car_id = get_last_id("cars.json")
         id = int(last_car_id) + 1
-        car_data = {"id":id,"brand":car_object.brand,"color":car_object.color,"price":car_object.price,"image":img_name}
+        car_data = {"id":id,"brand":car_object.brand,"color":car_object.color,"price":car_object.price,"image":car_object.image}
         All_cars_data.append(car_data)
         if img_name !="":
             image_uploaded.save(upload_path)
             write_json(data_file,file_name)
-        # else:
-        #     return "All elements are required"
-
     return redirect("/home")
 
 # see all cars is available in json file
@@ -156,11 +151,6 @@ def All_Cars():
     cars = Car.Show_All_Cars()
     return cars
 
-# show reserve form
-@app.route("/reserveForm")
-def show_reserve_form():
-    get_form =get_html("reserveForm")
-    return get_form
 
 # function for reserve car
 @app.route("/reserve",methods = ["POST"])
@@ -183,9 +173,7 @@ def reserve_car():
 # show the car details html and pass car data in it
 @app.route("/carDetails/<int:car_id>")
 def getDetails(car_id):
-    car_Details_content = get_html("carDetails")
     car_details = []
-    no_id =""
     with open("./static/json/cars.json") as file:
         allData = json.load(file)
         data_array = allData["cars"]
@@ -194,7 +182,7 @@ def getDetails(car_id):
                 car_details.append(car)
                 return render_template("carDetails.html",car_details=car_details)
         else:
-             return render_template("carDetails.html",no_id = "<div class='centerPage'><div class = 'containerNoResult'><p class='NoResultText'>No Data For This Id</p></div></div>")
+             return render_template("carDetails.html",no_id = "<div class='centerPage container'><div class = 'containerNoResult'><p class='NoResultText'>No Data For This Id</p></div></div>")
        
 
 
@@ -210,13 +198,12 @@ def search():
     
         for cars in cars_data_array:
             if cars["brand"].lower().find(search_value)!=-1 or cars["color"].lower().find(search_value)!=-1:
-                 print("hello")
                  Search_result+="<div class='col mt-3 mb-3'><div class='card h-100'><div class='card-body'><div class='imgContainerCard'><img class='card-img-top cardImg' src='../static/images/"+cars['image']+"'></div><a class='titleCardDetails'href='/carDetails/"+str(cars['id'])+"'><h5 class='card-title py-3'>"+cars["brand"]+"</h5></a><div class='btnCardContainer pb-3'><a class='btn btn-primary detailsBtn'href='/carDetails/"+str(cars["id"])+"'>Details</a></div></div></div></div>"
         
     getSearch = get_html("searchResult")
 
     if Search_result =="":
-         return getSearch.replace("$$search_Container$$","<div class='centerPage'><div class = 'containerNoResult'><p class='NoResultText'>No Results Found</p></div></div>")
+         return getSearch.replace("$$search_Container$$","<div class='centerPage container'><div class = 'containerNoResult'><p class='NoResultText'>No Results Found</p></div></div>")
     else:
          return getSearch.replace("$$search_Container$$",Search_result)
 
@@ -225,7 +212,6 @@ def search():
 def reservation_page():
     user_id = session.get("id")
     user_reservation = []
-    no_data =""
     with open("./static/json/reservation.json") as file_json:
         all_reservations = json.load(file_json)
         all_reservations_data = all_reservations["reservedCars"]
@@ -235,12 +221,7 @@ def reservation_page():
         if user_reservation != []:
          return render_template("reservation.html",user_reservation = user_reservation)
         else:
-         return render_template("reservation.html",no_data="<div class='centerPage'><div class = 'containerNoResult'><p class='NoResultText'>No reservations Found</p></div></div>")
-
-
-
-
-
+         return render_template("reservation.html",no_data="<div class='centerPage container'><div class = 'containerNoResult'><p class='NoResultText'>No reservations Found</p></div></div>")
 
 
 # return the reservation html page

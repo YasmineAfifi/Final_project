@@ -41,27 +41,6 @@
             "brand": "Mercedes",
             "color": "blue",
             "price": "1507"
-        },
-        {
-            "user_Id": "2",
-            "username": "mona",
-            "brand": "Chevrolet",
-            "color": "blue",
-            "price": "300"
-        },
-        {
-            "user_Id": "2",
-            "username": "mona",
-            "brand": "Chevrolet",
-            "color": "blue",
-            "price": "300"
-        },
-        {
-            "user_Id": "10",
-            "username": "mama",
-            "brand": "Mercedes",
-            "color": "blue",
-            "price": "1507"
         }
     ]
 }

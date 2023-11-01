@@ -17,24 +17,6 @@
             "name": "Yasmine",
             "email": "Yasmine@gmail.com",
             "password": "123456"
-        },
-        {
-            "id": 4,
-            "name": "sara",
-            "email": "sara@gmail.com",
-            "password": "123456"
-        },
-        {
-            "id": 6,
-            "name": "heba",
-            "email": "heba@gmail.com",
-            "password": "123456"
-        },
-        {
-            "id": 9,
-            "name": "amr",
-            "email": "amr@gmail.com",
-            "password": "123456"
         }
     ]
 }
