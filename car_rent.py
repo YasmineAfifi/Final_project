@@ -4,6 +4,27 @@ from flask import  redirect, render_template,request, url_for,session
 app = flask.Flask(__name__)
 app.secret_key = "security Key" #secret key for session
 
+# class of User
+class User:
+# constructor
+    def __init__(self,name,email,password):
+        self.name = name
+        self.email = email
+        self.password = password
+
+    # add user data to json file
+    def UserData(self):
+        with open("./static/json/register.json") as json_file:
+            last_id = get_last_id("register.json")
+            id = last_id + 1
+            file_name="./static/json/register.json"
+            data = json.load(json_file)
+            temp =data["names"]
+            user={"id":id,"name":self.name,"email":self.email,"password":self.password}
+            temp.append(user)
+            write_json(data,file_name)
+
+
 # class of Car
 class Car:
 # constructor
@@ -13,6 +34,21 @@ class Car:
         self.price = price
         self.image = image
 
+# add car data to json file
+    def carData(self,image_uploaded):
+        with open("./static/json/cars.json") as json_file:
+            data_file = json.load(json_file)
+            All_cars_data = data_file["cars"]
+            last_car_id = get_last_id("cars.json")
+            id =last_car_id + 1
+            file_name = "./static/json/cars.json"
+            upload_path = "./static/images/"+self.image
+            car_data = {"id":id,"brand":self.brand,"color":self.color,"price":self.price,"image":self.image}
+            All_cars_data.append(car_data)
+            if self.image !="":
+                image_uploaded.save(upload_path)
+                write_json(data_file,file_name)
+                
 # return all data for cars
     @staticmethod
     def Show_All_Cars():
@@ -22,6 +58,9 @@ class Car:
             All_cars = cars["cars"]
         return All_cars
     
+
+
+
 # return last id for user
 def get_last_id(json_file):
     with open("./static/json/"+json_file) as file:
@@ -39,7 +78,7 @@ def get_last_id(json_file):
             else:
                 last_id = data[-1]["id"]
 
-    return str(last_id)
+    return last_id
 
 # function for returning the html pages
 def get_html(page_name):
@@ -65,15 +104,8 @@ def add_user():
     name = flask.request.form.get("name")
     email = flask.request.form.get("email")
     password = flask.request.form.get("password")
-    with open("./static/json/register.json") as json_file:
-        last_id = get_last_id("register.json")
-        id = int(last_id) + 1
-        file_name="./static/json/register.json"
-        data = json.load(json_file)
-        temp =data["names"]
-        y={"id":id,"name":name,"email":email,"password":password}
-        temp.append(y)
-        write_json(data,file_name)
+    User_object = User(name,email,password)
+    User_object.UserData()
     return redirect("/login")
 
 
@@ -124,25 +156,14 @@ def add_cars_form():
 # add cars to json file
 @app.route("/cars",methods=["POST"])
 def Add_cars():
-    file_name = "./static/json/cars.json"
     image_uploaded = request.files["img"]
-
     brand = flask.request.form.get("brand")
     color = flask.request.form.get("color")
     price = flask.request.form.get("price")
     img_name= image_uploaded.filename
-    upload_path = "./static/images/"+img_name
     car_object = Car(brand,color,price,img_name)
-    with open("./static/json/cars.json") as json_file:
-        data_file = json.load(json_file)
-        All_cars_data = data_file["cars"]
-        last_car_id = get_last_id("cars.json")
-        id = int(last_car_id) + 1
-        car_data = {"id":id,"brand":car_object.brand,"color":car_object.color,"price":car_object.price,"image":car_object.image}
-        All_cars_data.append(car_data)
-        if img_name !="":
-            image_uploaded.save(upload_path)
-            write_json(data_file,file_name)
+    car_object.carData(image_uploaded)
+    
     return redirect("/home")
 
 # see all cars is available in json file
