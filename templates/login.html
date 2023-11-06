@@ -20,7 +20,12 @@
     <div id="loginContainer" >
 
       <form action="/login" method="post" id="loginForm">
-  
+
+        {% if error %}
+        <p class="text-center bg-warning text-bg-dark p-3">{{error}}</p>
+       
+        {% endif %}
+
           <p id="loginTitle">Login</p>
   
         <div>

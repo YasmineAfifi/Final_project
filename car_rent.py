@@ -13,7 +13,7 @@ class User:
         self.password = password
 
     # add user data to json file
-    def UserData(self):
+    def save_user_data(self):
         with open("./static/json/register.json") as json_file:
             last_id = get_last_id("register.json")
             id = last_id + 1
@@ -35,7 +35,7 @@ class Car:
         self.image = image
 
 # add car data to json file
-    def carData(self,image_uploaded):
+    def save_car_data(self,image_uploaded):
         with open("./static/json/cars.json") as json_file:
             data_file = json.load(json_file)
             All_cars_data = data_file["cars"]
@@ -95,8 +95,8 @@ def write_json(data,file_name):
 # return the register form html
 @app.route("/")
 def register():
-    gethtml = get_html("index")
-    return gethtml
+    register_html = get_html("index")
+    return register_html
 
 # add data from register form to json file
 @app.route("/register",methods = ["POST"])
@@ -105,7 +105,7 @@ def add_user():
     email = flask.request.form.get("email")
     password = flask.request.form.get("password")
     User_object = User(name,email,password)
-    User_object.UserData()
+    User_object.save_user_data()
     return redirect("/login")
 
 
@@ -128,11 +128,12 @@ def check_user_login():
                 session["name"]=name
                 return redirect(url_for('home_page'))
         else:
-            return redirect("/login")
+            
+            return render_template("login.html",error="invalid Email or password")
 
     else:
-        loginForm = get_html("login")
-        return loginForm
+        return render_template("login.html",error="")
+
     
 # show the home page and pass the name and id of the user 
 @app.route("/home")
@@ -162,7 +163,7 @@ def Add_cars():
     price = flask.request.form.get("price")
     img_name= image_uploaded.filename
     car_object = Car(brand,color,price,img_name)
-    car_object.carData(image_uploaded)
+    car_object.save_car_data(image_uploaded)
     
     return redirect("/home")
 
@@ -221,12 +222,12 @@ def search():
             if cars["brand"].lower().find(search_value)!=-1 or cars["color"].lower().find(search_value)!=-1:
                  Search_result+="<div class='col mt-3 mb-3'><div class='card h-100'><div class='card-body'><div class='imgContainerCard'><img class='card-img-top cardImg' src='../static/images/"+cars['image']+"'></div><a class='titleCardDetails'href='/carDetails/"+str(cars['id'])+"'><h5 class='card-title py-3'>"+cars["brand"]+"</h5></a><div class='btnCardContainer pb-3'><a class='btn btn-primary detailsBtn'href='/carDetails/"+str(cars["id"])+"'>Details</a></div></div></div></div>"
         
-    getSearch = get_html("searchResult")
+    search_page = get_html("searchResult")
 
     if Search_result =="":
-         return getSearch.replace("$$search_Container$$","<div class='centerPage container'><div class = 'containerNoResult'><p class='NoResultText'>No Results Found</p></div></div>")
+         return search_page.replace("$$search_Container$$","<div class='centerPage container'><div class = 'containerNoResult'><p class='NoResultText'>No Results Found</p></div></div>")
     else:
-         return getSearch.replace("$$search_Container$$",Search_result)
+         return search_page.replace("$$search_Container$$",Search_result)
 
 # return the reservation html page and pass user reservation data
 @app.route("/reservation")
