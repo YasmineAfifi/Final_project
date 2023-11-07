@@ -1,141 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Car</title>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  
+{%include "head.html"%}
+{% block title %}<title>Add Car</title>{% endblock title %}
 
-    <link rel="stylesheet" href="../static/css/style.css">
-</head>
 <body>
-    
-  <div class="position-relative">
-<!-- Start Image Poster -->
+
+<div class="position-relative">
+    <!-- Start Image Poster -->
     <div class="addCarImage">
-      
-     
+
+
     </div>
 
-<!-- End Image Poster -->
+    <!-- End Image Poster -->
 
-<!-- Start Add Form -->
+    <!-- Start Add Form -->
 
-      <div id ="addFormContainer">
+    <div id="addFormContainer">
       <div class="addFormBorder">
         <p id="addCarsTitle">Add Car</p>
         <form action="/cars" method="post" enctype="multipart/form-data" id="addCarForm">
           <div class="row">
             <div class="col">
-              <input type="text" name = "brand" class="addInput form-control" placeholder="Brand" id="brand">
-                  <span id="brandError" class="ErrorAdd"></span>
+              <input type="text" name="brand" class="addInput form-control" placeholder="Brand" id="brand">
+              <span id="brandError" class="ErrorAdd"></span>
             </div>
             <div class="col">
-              <input type="text" name = "color" class="addInput form-control" placeholder="Color"  id="color">
-                  <span id="colorError" class="ErrorAdd"></span>
+              <input type="text" name="color" class="addInput form-control" placeholder="Color" id="color">
+              <span id="colorError" class="ErrorAdd"></span>
             </div>
           </div>
-      
-      
-          <div class="row">
+
+       <div class="row">
             <div class="col">
-              <input type="text" name = "price" class="addInput form-control" placeholder="Price"  id="price">
-                  <span id="priceError" class="ErrorAdd"></span>
-          
+              <input type="text" name="price" class="addInput form-control" placeholder="Price" id="price">
+              <span id="priceError" class="ErrorAdd"></span>
+
             </div>
             <div class="col">
-              <input type="file" name="img"  class="addInput form-control"   id="image">
+              <input type="file" name="img" class="addInput form-control" id="image">
               <span id="imageError" class="ErrorAdd"></span>
-      
-                 
             </div>
           </div>
-           <div class="text-center mt-2">
+          <div class="text-center mt-2">
             <button type="submit" id="addCarBtn" class="w-50">Add</button>
           </div>
         </form>
-        
-
-    </div>
-<!-- End Add Form -->
-
-  </div>
-    
-  <!-- Start Nav -->
-
-    <div class="navContainer">
 
 
-
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <span class="navbar-brand">Rent-Car <span class="welcomeLink" id="welcomeUser"></span></span>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/reservation">Reservation</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/addCar">Add Car</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" id="logOutBtn"  href="/logout">LogOut</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search" action="/search" method="get">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-              <button class="btn btn-primary" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    </div>
-  <!-- End Nav -->
-
-
-
-
-
-
-  </div>
-
-
-
-
-
-
-    <!-- Start Footer -->
-     <footer>
-      <div>
-  
-        All Copyright For Car-Rent Website © 2023-2024
       </div>
-  
-    </footer> 
-   
-    
+      <!-- End Add Form -->
+
+    </div>
+
+    <!-- Start Nav -->
+    <div class="navContainer">
+    {% include "nav.html"%}
+    </div>
+    <!-- End Nav -->
+
+
+  </div>
+
+  <!-- Start Footer -->
+
+  {% include "footer.html"%}
+
   <!-- End Footer -->
-
-
-
-<script src="/static/js/bootstrap.bundle.min.js"></script>
-
-<script src="/static/js/layoutAll.js"></script> 
-<script src="/static/js/addCar.js"></script>
-
-
-  
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/layoutAll.js"></script>
+  <script src="/static/js/addCar.js"></script>
 </body>
-
-
 
 </html>

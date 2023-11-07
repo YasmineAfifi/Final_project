@@ -1,100 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Details</title>
-    
-    <link rel="shortcut icon" href="#" />
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+{%include "head.html"%}
+{% block title %}<title>Car Details</title>{% endblock title %}
 
-  <link rel="stylesheet" href="../static/css/style.css">
-</head>
 <body class="carDetailsBody">
   <div class="position-relative">
 
-         <!-- Start Nav -->
+    <!-- Start Nav -->
 
     <div class="navContainer position-relative">
-
-
-
-      <nav class="navbar navbar-expand-lg bg-body-tertiary navBarDark" >
-        <div class="container-fluid">
-          <span class="navbar-brand">Rent-Car <span class="welcomeLink" id="welcomeUser"></span></span>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/reservation">Reservation</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/addCar">Add Car</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page"  href="/logout" id="logOutBtn">LogOut</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search" action="/search" method="get">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-              <button class="btn btn-primary" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
+      {% include "nav.html"%}
     </div>
 
-<!-- End Nav -->
+    <!-- End Nav -->
   </div>
- 
+
   <!-- Start Image and form -->
   <div class="detailsBC">
     {% if car_details%}
-<div class="container allDetailContainer pt-5">
-  
+    <div class="container allDetailContainer pt-5">
 
-    <div class="row row-cols-1 CarDetailsContainer">
-  
 
-      {% for car in car_details %}
-      
-       <div class="col">
-          <img src="../static/images/{{car.image}}" alt=""  class="detailImage"> 
-       </div>
-       
-         <div class="col DetailsForm">
-          
+      <div class="row row-cols-1 CarDetailsContainer">
+
+
+        {% for car in car_details %}
+
+        <div class="col">
+          <img src="../static/images/{{car.image}}" alt="" class="detailImage">
+        </div>
+
+        <div class="col DetailsForm">
+
           <form action="/reserve" method="post">
-            <input type="hidden" name ="userId" id="userId">
-            <input type="hidden" name ="userName" id ="userName">
-            <input type="hidden" name = "brand" value={{car.brand}}>
-            <input type="hidden" name = "price" value={{car.price}}>
-            <input type="hidden" name = "color" value={{car.color}}>
-        
+            <input type="hidden" name="userId" id="userId">
+            <input type="hidden" name="userName" id="userName">
+            <input type="hidden" name="brand" value={{car.brand}}>
+            <input type="hidden" name="price" value={{car.price}}>
+            <input type="hidden" name="color" value={{car.color}}>
+
 
             <p class="brandName">{{car.brand}}</p>
-              <hr >
+            <hr>
             <div class="ps-2">
-            <p class="fw-light fs-5">{{car.price}} LE/Day</p>
-            <p class="fw-light fs-5">{{car.color}}</p>
-          </div>
-          <div class="text-center">
-            <button type="submit" id="Reserve" class="btn btn-primary w-25">Reserve</button>
-          </div>
+              <p class="fw-light fs-5">{{car.price}} LE/Day</p>
+              <p class="fw-light fs-5">{{car.color}}</p>
+            </div>
+            <div class="text-center">
+              <button type="submit" id="Reserve" class="btn btn-primary w-25">Reserve</button>
+            </div>
           </form>
 
-        </div> 
+        </div>
 
 
-    </div>
+      </div>
       {% endfor %}
     </div>
   </div>
@@ -103,22 +63,13 @@
   {% endif %}
   <!-- Start Image and form -->
 
-  
-     <!-- Start Footer -->
-     <footer>
-      <div>
-  
-        All Copyright For Car-Rent Website © 2023-2024
-      </div>
-  
-    </footer> 
-   
-    
+  <!-- Start Footer -->
+  {% include "footer.html"%}
   <!-- End Footer -->
-  
-  <script src="/static/js/bootstrap.bundle.min.js"></script>
 
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
   <script src="/static/js/layoutAll.js"></script>
   <script src="/static/js/details.js"></script>
 </body>
+
 </html>

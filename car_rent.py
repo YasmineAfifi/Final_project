@@ -80,12 +80,6 @@ def get_last_id(json_file):
 
     return last_id
 
-# function for returning the html pages
-def get_html(page_name):
-    html_page = open("templates/"+page_name+".html")
-    page_content = html_page.read()
-    html_page.close()
-    return page_content
 
 #  enter data to json file
 def write_json(data,file_name):
@@ -95,8 +89,7 @@ def write_json(data,file_name):
 # return the register form html
 @app.route("/")
 def register():
-    register_html = get_html("index")
-    return register_html
+    return render_template("index.html")
 
 # add data from register form to json file
 @app.route("/register",methods = ["POST"])
@@ -149,10 +142,10 @@ def home_page():
     
 # function for returning the add cars form html
 
-@app.route("/addCars")
+@app.route("/addCar")
 def add_cars_form():
-    add_form = get_html("addCars")
-    return add_form
+
+    return render_template("addCars.html") 
 
 # add cars to json file
 @app.route("/cars",methods=["POST"])
@@ -222,13 +215,12 @@ def search():
             if cars["brand"].lower().find(search_value)!=-1 or cars["color"].lower().find(search_value)!=-1:
                  Search_result+="<div class='col mt-3 mb-3'><div class='card h-100'><div class='card-body'><div class='imgContainerCard'><img class='card-img-top cardImg' src='../static/images/"+cars['image']+"'></div><a class='titleCardDetails'href='/carDetails/"+str(cars['id'])+"'><h5 class='card-title py-3'>"+cars["brand"]+"</h5></a><div class='btnCardContainer pb-3'><a class='btn btn-primary detailsBtn'href='/carDetails/"+str(cars["id"])+"'>Details</a></div></div></div></div>"
         
-    search_page = get_html("searchResult")
 
     if Search_result =="":
-         return search_page.replace("$$search_Container$$","<div class='centerPage container'><div class = 'containerNoResult'><p class='NoResultText'>No Results Found</p></div></div>")
+        return render_template("searchResult.html",Search_result="<div class='centerPage container'><div class = 'containerNoResult'><p class='NoResultText'>No Results Found</p></div></div>")
     else:
-         return search_page.replace("$$search_Container$$",Search_result)
-
+         return render_template("searchResult.html",Search_result=Search_result)
+    
 # return the reservation html page and pass user reservation data
 @app.route("/reservation")
 def reservation_page():
@@ -246,10 +238,7 @@ def reservation_page():
          return render_template("reservation.html",no_data="<div class='centerPage container'><div class = 'containerNoResult'><p class='NoResultText'>No reservations Found</p></div></div>")
 
 
-# return the reservation html page
-@app.route("/addCar")
-def add_car_page():
-    return render_template("addCars.html")
+
 
 # log out and clear session 
 @app.route("/logout")
