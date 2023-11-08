@@ -11,6 +11,11 @@
 <div id="registerContainer">
     
     <form action="/register" method="post" id="regiserForm">
+        {% if error %}
+        <p class="text-center bg-warning text-bg-dark p-3">{{error}}</p>
+       
+        {% endif %}
+
         <p id="registerTitle">Register</p>
         <div >
             <input type="text" placeholder="Your full name" class="registerInput"   name = "name" id="name">

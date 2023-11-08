@@ -1,90 +1,11 @@
 import flask
 import json
+from user_class import User
+from car_class import Car
+from last_id import write_json
 from flask import  redirect, render_template,request, url_for,session
 app = flask.Flask(__name__)
 app.secret_key = "security Key" #secret key for session
-
-# class of User
-class User:
-# constructor
-    def __init__(self,name,email,password):
-        self.name = name
-        self.email = email
-        self.password = password
-
-    # add user data to json file
-    def save_user_data(self):
-        with open("./static/json/register.json") as json_file:
-            last_id = get_last_id("register.json")
-            id = last_id + 1
-            file_name="./static/json/register.json"
-            data = json.load(json_file)
-            temp =data["names"]
-            user={"id":id,"name":self.name,"email":self.email,"password":self.password}
-            temp.append(user)
-            write_json(data,file_name)
-
-
-# class of Car
-class Car:
-# constructor
-    def __init__(self,brand,color,price,image):
-        self.brand = brand
-        self.color = color
-        self.price = price
-        self.image = image
-
-# add car data to json file
-    def save_car_data(self,image_uploaded):
-        with open("./static/json/cars.json") as json_file:
-            data_file = json.load(json_file)
-            All_cars_data = data_file["cars"]
-            last_car_id = get_last_id("cars.json")
-            id =last_car_id + 1
-            file_name = "./static/json/cars.json"
-            upload_path = "./static/images/"+self.image
-            car_data = {"id":id,"brand":self.brand,"color":self.color,"price":self.price,"image":self.image}
-            All_cars_data.append(car_data)
-            if self.image !="":
-                image_uploaded.save(upload_path)
-                write_json(data_file,file_name)
-                
-# return all data for cars
-    @staticmethod
-    def Show_All_Cars():
- 
-        with open("./static/json/cars.json") as json_file:
-            cars = json.load(json_file)
-            All_cars = cars["cars"]
-        return All_cars
-    
-
-
-
-# return last id for user
-def get_last_id(json_file):
-    with open("./static/json/"+json_file) as file:
-        alldata =json.load(file)
-        if json_file == "register.json":
-            data = alldata["names"]
-            if data==[]:
-                last_id = 0
-            else:
-                last_id = data[-1]["id"]  #get the last id as data[len-1]["id"]
-        elif json_file == "cars.json":
-            data = alldata["cars"]
-            if data==[]:
-                last_id = 0
-            else:
-                last_id = data[-1]["id"]
-
-    return last_id
-
-
-#  enter data to json file
-def write_json(data,file_name):
-    with open(file_name,"w") as file:
-        json.dump(data,file,indent=4)
 
 # return the register form html
 @app.route("/")
@@ -98,8 +19,9 @@ def add_user():
     email = flask.request.form.get("email")
     password = flask.request.form.get("password")
     User_object = User(name,email,password)
-    User_object.save_user_data()
-    return redirect("/login")
+    is_found = User_object.save_user_data()
+    
+    return is_found
 
 
 
@@ -122,7 +44,7 @@ def check_user_login():
                 return redirect(url_for('home_page'))
         else:
             
-            return render_template("login.html",error="invalid Email or password")
+            return render_template("login.html",error="Wrong Email or password")
 
     else:
         return render_template("login.html",error="")
