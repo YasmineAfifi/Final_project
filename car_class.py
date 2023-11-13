@@ -1,4 +1,5 @@
-from last_id import get_last_id,write_json,json
+from functions import get_last_id,write_json,json
+from flask import session
 
 # class of Car
 class Car:
@@ -16,9 +17,11 @@ class Car:
             All_cars_data = data_file["cars"]
             last_car_id = get_last_id("cars.json")
             id =last_car_id + 1
+            user_id = session.get("id")
+            user_name = session.get("name")
             file_name = "./static/json/cars.json"
             upload_path = "./static/images/"+self.image
-            car_data = {"id":id,"brand":self.brand,"color":self.color,"price":self.price,"image":self.image}
+            car_data = {"id":id,"user_id":user_id,"user_name":user_name,"brand":self.brand,"color":self.color,"price":self.price,"image":self.image}
             All_cars_data.append(car_data)
             if self.image !="":
                 image_uploaded.save(upload_path)

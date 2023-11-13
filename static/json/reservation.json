@@ -2,45 +2,21 @@
     "reservedCars": [
         {
             "user_Id": "1",
-            "username": "mohamed",
-            "brand": "Fiat",
+            "username": "Mohamed",
+            "brand": "Chevrolet",
             "color": "blue",
-            "price": "120"
-        },
-        {
-            "user_Id": "2",
-            "username": "mona",
-            "brand": "Logan",
-            "color": "purple",
-            "price": "111"
-        },
-        {
-            "user_Id": "2",
-            "username": "mona",
-            "brand": "BMW",
-            "color": "yellow",
-            "price": "1000"
+            "price": "300",
+            "dateFrom": "2023-11-30",
+            "dateTo": "2023-12-06"
         },
         {
             "user_Id": "1",
-            "username": "mohamed",
-            "brand": "BMW",
-            "color": "yellow",
-            "price": "1000"
-        },
-        {
-            "user_Id": "1",
-            "username": "mohamed",
-            "brand": "Rino",
-            "color": "black",
-            "price": "500"
-        },
-        {
-            "user_Id": "1",
-            "username": "mohamed",
-            "brand": "Mercedes",
+            "username": "Mohamed",
+            "brand": "Chevrolet",
             "color": "blue",
-            "price": "1507"
+            "price": "300",
+            "dateFrom": "2023-12-01",
+            "dateTo": "2023-12-21"
         }
     ]
 }

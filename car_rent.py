@@ -2,7 +2,7 @@ import flask
 import json
 from user_class import User
 from car_class import Car
-from last_id import write_json
+from functions import write_json
 from flask import  redirect, render_template,request, url_for,session
 app = flask.Flask(__name__)
 app.secret_key = "security Key" #secret key for session
@@ -98,11 +98,13 @@ def reserve_car():
     brand = flask.request.form.get("brand")
     color = flask.request.form.get("color")
     price = flask.request.form.get("price")
-    
+    dateFrom = flask.request.form.get("dateFrom")
+    dateTo = flask.request.form.get("dateTo")
+
     with open("./static/json/reservation.json") as file_json:
        reserve_file = json.load(file_json)
        reserve_data = reserve_file["reservedCars"]
-       new_reservation = {"user_Id":user_Id,"username":username,"brand":brand,"color":color,"price":price}
+       new_reservation = {"user_Id":user_Id,"username":username,"brand":brand,"color":color,"price":price,"dateFrom":dateFrom,"dateTo":dateTo}
        reserve_data.append(new_reservation)
        write_json(reserve_file,file_name)
        return redirect("/reservation")
@@ -135,9 +137,30 @@ def search():
     
         for cars in cars_data_array:
             if cars["brand"].lower().find(search_value)!=-1 or cars["color"].lower().find(search_value)!=-1:
-                 Search_result+="<div class='col mt-3 mb-3'><div class='card h-100'><div class='card-body'><div class='imgContainerCard'><img class='card-img-top cardImg' src='../static/images/"+cars['image']+"'></div><a class='titleCardDetails'href='/carDetails/"+str(cars['id'])+"'><h5 class='card-title py-3'>"+cars["brand"]+"</h5></a><div class='btnCardContainer pb-3'><a class='btn btn-primary detailsBtn'href='/carDetails/"+str(cars["id"])+"'>Details</a></div></div></div></div>"
+                 Search_result+="<div class='col mt-3 mb-3'><div class='card h-100'><div class='card-body'>\
+       <div class='imgContainerCard'><img class='card-img-top cardImg' src='../static/images/"+cars['image']+"'>\
+       </div><a class='titleCardDelete' href='/carDetails/"+str(cars['id'])+"'>\
+            <h5 class='card-title py-3'>"+cars['brand']+"</h5></a>\
+            <div class='btnCardContainer pb-3'>\
+            <a class='btn btn-primary detailsBtn' href='/carDetails/"+str(cars['id'])+"'>Details</a>\
+            <a type='button' class='btn btn-secondary deleteBtn' data-bs-toggle='modal' data-bs-target='#exampleModal_"+str(cars['id'])+"'>Delete</a>\
+            </div></div></div></div>\
+            <div class='modal fade' id='exampleModal_"+str(cars['id'])+"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>\
+              <div class='modal-dialog'>\
+                <div class='modal-content'>\
+                  <div class='modal-header'>\
+                    <h1 class='modal-title fs-5' id='exampleModalLabel'>Confirm</h1>\
+                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>\
+                  </div>\
+                  <div class='modal-body'>\
+                   Do you want to delete "+cars['brand']+"'?\
+                  </div>\
+                  <div class='modal-footer'>\
+                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>\
+                    <form  action='/delete/"+str(cars['id'])+"' method='post'>\
+                    <button class='btn btn-danger' type='submit'>Delete</button>\
+                    </form></div></div></div></div>"
         
-
     if Search_result =="":
         return render_template("searchResult.html",Search_result="<div class='centerPage container'><div class = 'containerNoResult'><p class='NoResultText'>No Results Found</p></div></div>")
     else:
@@ -169,6 +192,22 @@ def log_out():
     return redirect("/login")
 
 
+# delete Car 
+@app.route("/delete/<int:car_id>",methods = ["POST"])
+def delete_car(car_id):
+  file_name = "./static/json/cars.json"
+  with open("./static/json/cars.json") as file:
+      all_data = json.load(file)
+      all_car_data = all_data["cars"]
+      for car in all_car_data:
+          if car["id"] == car_id:
+              all_car_data.pop(car_id-1)
+  write_json(all_data,file_name)
+    
+  return render_template("home.html")
+
+
+
 
 if __name__ =='__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0",debug=True)

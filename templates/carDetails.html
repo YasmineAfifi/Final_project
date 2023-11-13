@@ -32,7 +32,7 @@
 
         <div class="col DetailsForm">
 
-          <form action="/reserve" method="post">
+          <form action="/reserve" method="post" id="reserveForm">
             <input type="hidden" name="userId" id="userId">
             <input type="hidden" name="userName" id="userName">
             <input type="hidden" name="brand" value={{car.brand}}>
@@ -45,6 +45,27 @@
             <div class="ps-2">
               <p class="fw-light fs-5">{{car.price}} LE/Day</p>
               <p class="fw-light fs-5">{{car.color}}</p>
+            </div>
+
+            <div>
+      
+              <div class="row g-3 align-items-center mb-3 ">
+                <div class="col-6 form-group">
+                <input placeholder="From" type="text" class="form-control" name="dateFrom" id="dateFrom" onfocus="this.type='date'" onblur="this.type='text'">
+                <span id="dateFromError" class="Error"></span>
+
+                </div>
+                <div class="col-6 form-group">
+                 <input placeholder="To" type="text"  class="form-control "name="dateTo" id="dateTo" onfocus="this.type='date'" onblur="this.type='text'">
+                 <span id="dateToError" class="Error"></span>
+
+                </div>
+             
+              </div>
+
+
+
+          
             </div>
             <div class="text-center">
               <button type="submit" id="Reserve" class="btn btn-primary w-25">Reserve</button>

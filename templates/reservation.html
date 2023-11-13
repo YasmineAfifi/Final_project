@@ -5,7 +5,7 @@
 {% block title %}<title>Reservation</title>{% endblock title %}
 <body>
   
-     <!-- Start image and Nav -->
+  <!-- Start image and Nav -->
   <div class="position-relative">
     <div class="imageTitleContainer">
     <div class="reserveImage">
@@ -38,6 +38,8 @@
             <th >Brand</th>
             <th >Color</th>
             <th >Price</th>
+            <th >From</th>
+            <th >To</th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +48,8 @@
             <td>{{reservation.brand}}</td>
             <td>{{reservation.color}}</td>
             <td>{{reservation.price}} LE/Day</td>
+            <td>{{reservation.dateFrom}}</td>
+            <td>{{reservation.dateTo}}</td>
           </tr>
           {% endfor %}
 
@@ -64,7 +68,7 @@
 <script src="/static/js/bootstrap.bundle.min.js"></script>
 
 
-    <script src="/static/js/layoutAll.js"></script>
+<script src="/static/js/layoutAll.js"></script>
 
 
 </body>

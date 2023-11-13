@@ -168,12 +168,15 @@ body {
   border: 1px solid black;
 }
 
-
+/* delete btn in the card
+.deleteBtn{
+  width: 100%;
+} */
 
 /* buttons found in the cards */
-.detailsBtn {
+.detailsBtn,.deleteBtn{
 
-  width: 60%;
+  width: 50%;
 }
 
 /* welcome for user in navbar */
@@ -224,7 +227,7 @@ body {
 }
 
 /* link for title in home page card */
-.titleCardDetails {
+.titleCardDelete {
   text-decoration: none;
   color: black;
 }
@@ -259,7 +262,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  height: 125vh;
 }
 
 /* footer  */
@@ -464,7 +467,7 @@ tr {
 
 /* body of details page */
 .carDetailsBody{
-  min-height: 123vh;
+  min-height: 125vh;
 }
 /* container of the car details page */
 .allDetailContainer{

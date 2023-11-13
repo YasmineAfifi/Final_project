@@ -1,4 +1,4 @@
-from last_id import get_last_id,write_json,json
+from functions import get_last_id,write_json,json
 from flask import render_template,redirect
 # class of User
 class User:
