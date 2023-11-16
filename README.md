@@ -28,6 +28,8 @@ It is a simple application that allows the user to search for and reserve all av
 
 6-Delete cars
 
+7-Update for added cars 
+
 ### Tools
 
 HTML
