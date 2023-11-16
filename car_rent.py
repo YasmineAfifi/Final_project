@@ -138,8 +138,17 @@ def search():
         for cars in cars_data_array:
             if cars["brand"].lower().find(search_value)!=-1 or cars["color"].lower().find(search_value)!=-1:
                  Search_result+="<div class='col mt-3 mb-3'><div class='card h-100'><div class='card-body'>\
-       <div class='imgContainerCard'><img class='card-img-top cardImg' src='../static/images/"+cars['image']+"'>\
-       </div><a class='titleCardDelete' href='/carDetails/"+str(cars['id'])+"'>\
+        <div class='imgContainerCard'><img class='card-img-top cardImg' src='../static/images/"+cars['image']+"'>\
+        <div class='row'>\
+            <div class='col-9'>\
+            <a class='titleCardDelete' href='/carDetails/"+str(cars['id'])+"'>\
+           <h5 class='card-title py-3'>"+cars['brand']+"</h5></a>\
+            </div><div class='col-3 py-3 text-center'>\
+            <a href='/edit/"+str(cars['id'])+"'>\
+            <img src='../static/images/edit.png' width='15'></a>\
+            </div>\
+            </div>\
+        </div><a class='titleCardDelete' href='/carDetails/"+str(cars['id'])+"'>\
             <h5 class='card-title py-3'>"+cars['brand']+"</h5></a>\
             <div class='btnCardContainer pb-3'>\
             <a class='btn btn-primary detailsBtn' href='/carDetails/"+str(cars['id'])+"'>Details</a>\
@@ -207,7 +216,49 @@ def delete_car(car_id):
   return render_template("home.html")
 
 
+# show car update form 
+@app.route("/edit/<int:car_id>")
+def update_car_form(car_id):
+    car_details=[]
+    with open("./static/json/cars.json") as file:
+      all_data = json.load(file)
+      all_car_data = all_data["cars"]
+      for car in all_car_data:
+          if car["id"] == car_id:
+            car_details.append(car)
+            return render_template("carUpdate.html",car_details=car_details)
+      else:
+            return render_template("carUpdate.html",no_id = "<div class='centerPage container'><div class = 'containerNoResult'><p class='NoResultText'>No Data For This Id</p></div></div>")
 
+#function for editing the added car
+@app.route("/edit",methods=["POST"])
+def update_car():
+    id = int(flask.request.form.get("carID"))
+    brand = flask.request.form.get("brand")
+    color = flask.request.form.get("color")
+    price = flask.request.form.get("price")
+    image_uploaded = request.files["img"]
+    user_id = session.get("id")
+    user_name = session.get("name")
+    file_name = "./static/json/cars.json"
+
+    with open("./static/json/cars.json") as file:
+      all_data = json.load(file)
+      all_car_data = all_data["cars"]
+      
+
+    if image_uploaded.filename=="":
+        image_name =  all_car_data[id-1]["image"]
+    else:
+      image_name = image_uploaded.filename
+      upload_path = "./static/images/"+image_name
+      image_uploaded.save(upload_path)
+    
+    all_car_data[id-1]={"id":id,"user_id":user_id,"user_name":user_name,"brand":brand,"color":color,"price":price,"image":image_name}
+
+    write_json(all_data,file_name)
+      
+    return redirect("/home")
 
 if __name__ =='__main__':
     app.run(host="0.0.0.0",debug=True)

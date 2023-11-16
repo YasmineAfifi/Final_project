@@ -401,15 +401,15 @@ tr {
   background-color: #0000004d !important;
 }
 
-/* background Image for add car image */
+/* background Image for add car image and edit car*/
 .addCarImage {
   background-image: url(/static/images/add1.jpg);
-  height: 100vh;
-  background-repeat: no-repeat;
-  width: 100%;
-  background-size: cover;
-  background-position: 50% 60%;
-  filter: brightness(50%);
+  height: 100vh !important;
+  background-repeat: no-repeat !important;
+  width: 100%  !important;
+  background-size: cover  !important;
+  background-position: 50% 60%  !important;
+  filter: brightness(50%)  !important;
 }
 
 /* container in the add car form  */

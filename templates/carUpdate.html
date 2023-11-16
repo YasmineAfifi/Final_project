@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+{%include "head.html"%}
+{% block title %}<title>Update Car</title>{% endblock title %}
+
+<body>
+  
+  {% if car_details%}
+<div class="position-relative">
+    {%for details in car_details%}
+    <!-- Start Image Poster -->
+    <div  style="background:url('../static/images/{{details.image}}')" class="addCarImage">
+
+    </div>
+
+    <!-- End Image Poster -->
+
+    <!-- Start update Form -->
+
+    <div id="addFormContainer">
+      <div class="addFormBorder">
+        <p id="addCarsTitle">Update Car</p>
+        <form action="/edit" method="post" enctype="multipart/form-data" id="updateCarForm">
+        <input type="hidden" name="carID" id="carID" value="{{details.id}}">
+          <div class="row">
+            <div class="col">
+              <input type="text" name="brand" class="addInput form-control" placeholder="Brand" id="brand" value="{{details.brand}}">
+              <span id="brandError" class="ErrorAdd"></span>
+            </div>
+            <div class="col">
+              <input type="text" name="color" class="addInput form-control" placeholder="Color" id="color" value="{{details.color}}">
+              <span id="colorError" class="ErrorAdd"></span>
+            </div>
+          </div>
+
+       <div class="row">
+            <div class="col">
+              <input type="text" name="price" class="addInput form-control" placeholder="Price" id="price" value="{{details.price}}">
+              <span id="priceError" class="ErrorAdd"></span>
+
+            </div>
+            <div class="col">
+              <input type="file" name="img" class="addInput form-control" id="image">
+            </div>
+          </div>
+          <div class="text-center mt-2">
+            <button type="submit" id="addCarBtn" class="w-50">Update</button>
+          </div>
+        </form>
+
+    {% endfor %}
+
+    </div>
+      <!-- End update Form -->
+
+    </div>
+
+    <!-- Start Nav -->
+    <div class="navContainer">
+    {% include "nav.html"%}
+    </div>
+    <!-- End Nav -->
+
+
+  </div>
+  {%else%}
+       <!-- Start Nav -->
+       <div class="navContainer">
+        {% include "nav.html"%}
+        </div>
+        <!-- End Nav -->
+  {{no_id|safe}}
+  {% endif %}
+  <!-- Start Footer -->
+
+  {% include "footer.html"%}
+  <!-- End Footer -->
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/layoutAll.js"></script>
+  <script src="/static/js/carUpdate.js"></script>
+</body>
+
+</html>

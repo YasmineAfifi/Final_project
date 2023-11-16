@@ -24,8 +24,16 @@ function getAllCars() {
             <div class="imgContainerCard">
             <img class="card-img-top cardImg" src="../static/images/${element.image}">
             </div>
+            <div class="row">
+            <div class="col-9">
             <a class="titleCardDelete" href="/carDetails/${element.id}">
             <h5 class="card-title py-3">${element.brand}</h5></a>
+            </div>
+            <div class="col-3 py-3 text-center">
+            <a href="/edit/${element.id}">
+            <img src="../static/images/edit.png" width="15"></a>
+            </div>
+            </div>
             <div class="btnCardContainer pb-3">
             <a class="btn btn-primary detailsBtn" href="/carDetails/${element.id}">Details</a>
            
